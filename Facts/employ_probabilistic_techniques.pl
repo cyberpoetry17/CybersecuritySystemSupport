@@ -13,7 +13,7 @@ weakness(fuzzing_for_application_mapping,insertion_of_sensitive_information_into
 attack(dictionary_based_password_attack).
 attributes(dictionary_based_password_attack, [16, medium, high]).
 weakness(dictionary_based_password_attack,weak_password_requirements,1).
-weakness(dictionary_based_password_attack,Not Using Password Aging,1).
+weakness(dictionary_based_password_attack,not_using_password_aging,1).
 weakness(dictionary_based_password_attack,password_aging_with_long_expiration,1).
 weakness(dictionary_based_password_attack,reliance_on_a_single_factor_in_a_security_decision,1).
 weakness(dictionary_based_password_attack,improper_restriction_of_excessive_authentication_attempts,1).

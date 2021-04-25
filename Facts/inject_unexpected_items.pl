@@ -250,7 +250,7 @@ improper_input_validation, 1).
 weakness(command_line_execution_through_sql_injection,
 improper_neutralization_of_special_elements_used_in_an_os_command, 1).
 weakness(command_line_execution_through_sql_injection,
-process_control, 1).;
+process_control, 1).
 
 %Object Relational Mapping Injection
 attack(object_relational_mapping_injection).
@@ -357,7 +357,7 @@ attributes(winlogon_helper_dll, [579, null, null]).
 
 %TCP RST Injection
 attack(tcp_rst_injection).
-attributes(tcp_rst_injection, [596, null, null).
+attributes(tcp_rst_injection, [596, null, null]).
 weakness(tcp_rst_injection, 
 improper_verification_of_source_of_a_communication_channel, 1).
 
