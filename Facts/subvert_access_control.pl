@@ -263,7 +263,7 @@ weakness(reusing_session_ids,incorrect_permission_assignment_for_critical_resour
 attack(session_fixation).
 attributes(session_fixation, [61, medium, high]).
 weakness(session_fixation,session_fixation,1).
-weakness(session_fixation,7pk_time_and_state,1).
+weakness(session_fixation,seven_pk_time_and_state,1).
 weakness(session_fixation,improper_control_of_a_resource_through_its_lifetime,1).
 weakness(session_fixation,incorrect_permission_assignment_for_critical_resource,1).
 
