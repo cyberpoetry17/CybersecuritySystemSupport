@@ -1,7 +1,7 @@
 %(attack, weakness, percentage)
 
 attack(buffer_overflow_via_environment_variables).
-attributes(buffer_overflow_via_environment_variables , [10, high, high]).
+attributes(buffer_overflow_via_environment_variables , [10, 'high', 'high']).
 weakness(buffer_overflow_via_environment_variables, buffer_copy_without_checking_size_of_input, 1).
 weakness(buffer_overflow_via_environment_variables, authentication_bypass_by_assumed_immutable_data, 1).
 weakness(buffer_overflow_via_environment_variables, incorrect_access_of_indexable_resource, 1).
@@ -14,7 +14,7 @@ weakness(buffer_overflow_via_environment_variables, compiler_optimization_remova
 weakness(buffer_overflow_via_environment_variables, incorrect_comparison, 1).
 
 attack(client_side_injection_induced_buffer_overflow).
-attributes(client_side_injection_induced_buffer_overflow , [14, medium, high]).
+attributes(client_side_injection_induced_buffer_overflow , [14, 'medium', 'high']).
 weakness(client_side_injection_induced_buffer_overflow, buffer_copy_without_checking_size_of_input, 1).
 weakness(client_side_injection_induced_buffer_overflow, missing_support_for_integrity_check, 1).
 weakness(client_side_injection_induced_buffer_overflow, incorrect_access_of_indexable_resource, 1).
@@ -26,7 +26,7 @@ weakness(client_side_injection_induced_buffer_overflow, incorrect_comparison, 1)
 weakness(client_side_injection_induced_buffer_overflow, owasp_top_ten_2007_category_a2_injection_flaws, 1).
 
 attack(filter_failure_through_buffer_overflow).
-attributes(filter_failure_through_buffer_overflow , [24, high, high]).
+attributes(filter_failure_through_buffer_overflow , [24, 'high', 'high']).
 weakness(filter_failure_through_buffer_overflow, buffer_copy_without_checking_size_of_input, 1).
 weakness(filter_failure_through_buffer_overflow, improper_restriction_of_operations_within_the_bounds_of_a_memory_buffer, 1).
 weakness(filter_failure_through_buffer_overflow, incorrect_access_of_indexable_resource, 1).
@@ -37,25 +37,25 @@ weakness(filter_failure_through_buffer_overflow, compiler_optimization_removal_o
 weakness(filter_failure_through_buffer_overflow, incorrect_comparison, 1).
 
 attack(soap_array_overflow).
-attributes(soap_array_overflow , [256, null, high]).
+attributes(soap_array_overflow , [256, 'null', 'high']).
 weakness(soap_array_overflow, buffer_access_with_incorrect_length_value, 1).
 
 attack(mime_conversion).
-attributes(mime_conversion , [42, high, high]).
+attributes(mime_conversion , [42, 'high', 'high']).
 weakness(mime_conversion, buffer_copy_without_checking_size_of_input, 1).
 weakness(mime_conversion, improper_restriction_of_operations_within_the_bounds_of_a_memory_buffer, 1).
 weakness(mime_conversion, improper_neutralization_of_special_elements_in_output_used_by_a_downstream_component, 1).
 weakness(mime_conversion, improper_input_validation, 1).
 
 attack(overflow_binary_resource_file).
-attributes(overflow_binary_resource_file , [44, high, very_high]).
+attributes(overflow_binary_resource_file , [44, 'high', 'very_high']).
 weakness(overflow_binary_resource_file, buffer_copy_without_checking_size_of_input, 1).
 weakness(overflow_binary_resource_file, improper_restriction_of_operations_within_the_bounds_of_a_memory_buffer, 1).
 weakness(overflow_binary_resource_file, incorrect_comparison, 1).
 weakness(overflow_binary_resource_file, owasp_top_ten_2007_category_a2_injection_flaws, 1).
 
 attack(buffer_overflow_via_symbolic_links).
-attributes(buffer_overflow_via_symbolic_links , [45, high, high]).
+attributes(buffer_overflow_via_symbolic_links , [45, 'high', 'high']).
 weakness(buffer_overflow_via_symbolic_links, buffer_copy_without_checking_size_of_input, 1).
 weakness(buffer_overflow_via_symbolic_links, improper_authorization, 1).
 weakness(buffer_overflow_via_symbolic_links, authentication_bypass_by_assumed_immutable_data, 1).
@@ -67,7 +67,7 @@ weakness(buffer_overflow_via_symbolic_links, integer_overflow_to_buffer_overflow
 weakness(buffer_overflow_via_symbolic_links, incorrect_comparison, 1).
 
 attack(overflow_variables_and_tags).
-attributes(overflow_variables_and_tags , [46, high, high]).
+attributes(overflow_variables_and_tags , [46, 'high', 'high']).
 weakness(overflow_variables_and_tags, buffer_copy_without_checking_size_of_input, 1).
 weakness(overflow_variables_and_tags, incorrect_access_of_indexable_resource, 1).
 weakness(overflow_variables_and_tags, improper_restriction_of_operations_within_the_bounds_of_a_memory_buffer, 1).
@@ -78,7 +78,7 @@ weakness(overflow_variables_and_tags, compiler_optimization_removal_or_modificat
 weakness(overflow_variables_and_tags, incorrect_comparison, 1).
 
 attack(buffer_overflow_via_parameter_expansion).
-attributes(buffer_overflow_via_parameter_expansion , [47, medium, high]).
+attributes(buffer_overflow_via_parameter_expansion , [47, 'medium', 'high']).
 weakness(buffer_overflow_via_parameter_expansion, buffer_copy_without_checking_size_of_input, 1).
 weakness(buffer_overflow_via_parameter_expansion, improper_restriction_of_operations_within_the_bounds_of_a_memory_buffer, 1).
 weakness(buffer_overflow_via_parameter_expansion, incorrect_access_of_indexable_resource, 1).
@@ -90,7 +90,7 @@ weakness(buffer_overflow_via_parameter_expansion, integer_overflow_to_buffer_ove
 weakness(buffer_overflow_via_parameter_expansion, incorrect_comparison, 1).
 
 attack(string_format_overflow_in_syslog).
-attributes(string_format_overflow_in_syslog , [67, high, very_high]).
+attributes(string_format_overflow_in_syslog , [67, 'high', 'very_high']).
 weakness(string_format_overflow_in_syslog, buffer_copy_without_checking_size_of_input, 1).
 weakness(string_format_overflow_in_syslog, use_of_externally_controlled_format_string, 1).
 weakness(string_format_overflow_in_syslog, improper_neutralization_of_special_elements_in_output_used_by_a_downstream_component, 1).
@@ -99,7 +99,7 @@ weakness(string_format_overflow_in_syslog, integer_overflow_to_buffer_overflow, 
 weakness(string_format_overflow_in_syslog, incorrect_comparison, 1).
 
 attack(buffer_overflow_in_an_api_call).
-attributes(buffer_overflow_in_an_api_call , [8, high, high]).
+attributes(buffer_overflow_in_an_api_call , [8, 'high', 'high']).
 weakness(buffer_overflow_in_an_api_call, buffer_copy_without_checking_size_of_input, 1).
 weakness(buffer_overflow_in_an_api_call, improper_restriction_of_operations_within_the_bounds_of_a_memory_buffer, 1).
 weakness(buffer_overflow_in_an_api_call, incorrect_access_of_indexable_resource, 1).
@@ -110,7 +110,7 @@ weakness(buffer_overflow_in_an_api_call, compiler_optimization_removal_or_modifi
 weakness(buffer_overflow_in_an_api_call, incorrect_comparison, 1).
 
 attack(buffer_overflow_in_local_command_line_utilities).
-attributes(buffer_overflow_in_local_command_line_utilities , [9, high, high]).
+attributes(buffer_overflow_in_local_command_line_utilities , [9, 'high', 'high']).
 weakness(buffer_overflow_in_local_command_line_utilities, buffer_copy_without_checking_size_of_input, 1).
 weakness(buffer_overflow_in_local_command_line_utilities, improper_restriction_of_operations_within_the_bounds_of_a_memory_buffer, 1).
 weakness(buffer_overflow_in_local_command_line_utilities, incorrect_access_of_indexable_resource, 1).
@@ -121,30 +121,30 @@ weakness(buffer_overflow_in_local_command_line_utilities, compiler_optimization_
 weakness(buffer_overflow_in_local_command_line_utilities, incorrect_comparison, 1).
 
 attack(overread_buffers).
-attributes(overread_buffers , [540, low, high]).
+attributes(overread_buffers , [540, 'low', 'high']).
 weakness(overread_buffers, out_of_bounds_read, 1).
 
 attack(shared_resource_manipulation).
-attributes(shared_resource_manipulation , [124, null, medium]).
+attributes(shared_resource_manipulation , [124, 'null', 'medium']).
 weakness(shared_resource_manipulation, improper_isolation_of_shared_resources_on_system_on_a_chip, 1).
 weakness(shared_resource_manipulation, improper_isolation_of_shared_resources_in_network_on_chip, 1).
 
 attack(pointer_manipulation).
-attributes(pointer_manipulation , [129, null, medium]).
+attributes(pointer_manipulation , [129, 'null', 'medium']).
 weakness(pointer_manipulation, incorrect_calculation, 1).
 weakness(pointer_manipulation, untrusted_pointer_dereference, 1).
 weakness(pointer_manipulation, use_of_out_of_range_pointer_offset, 1).
  
 attack(relative_path_traversal).
-attributes(relative_path_traversal , [139, high, high]).
+attributes(relative_path_traversal , [139, 'high', 'high']).
 weakness(relative_path_traversal, relative_path_traversal, 1).
 
 attack(absolute_path_traversal).
-attributes(absolute_path_traversal , [597, null, null]).
+attributes(absolute_path_traversal , [597, 'null', 'null']).
 weakness(absolute_path_traversal, absolute_path_traversal, 1).
 
 attack(manipulating_web_input_to_file_system_calls).
-attributes(manipulating_web_input_to_file_system_calls , [76, high, very_high]).
+attributes(manipulating_web_input_to_file_system_calls , [76, 'high', 'very_high']).
 weakness(manipulating_web_input_to_file_system_calls, relative_path_traversal, 1).
 weakness(manipulating_web_input_to_file_system_calls, improper_limitation_of_a_pathname_to_a_restricted_directory, 1).
 weakness(manipulating_web_input_to_file_system_calls, external_control_of_file_name_or_path, 1).
@@ -160,7 +160,7 @@ weakness(manipulating_web_input_to_file_system_calls, external_control_of_system
 weakness(manipulating_web_input_to_file_system_calls, owasp_top_ten_2007_category_a4_insecure_direct_object_reference, 1).
 
 attack(forced_integer_overflow).
-attributes(forced_integer_overflow , [92, high, high]).
+attributes(forced_integer_overflow , [92, 'high', 'high']).
 weakness(forced_integer_overflow, integer_overflow_or_wraparound, 1).
 weakness(forced_integer_overflow, wrap_around_error, 1).
 weakness(forced_integer_overflow, buffer_copy_without_checking_size_of_input, 1).
@@ -170,7 +170,7 @@ weakness(forced_integer_overflow, integer_overflow_to_buffer_overflow, 1).
 weakness(forced_integer_overflow, incorrect_comparison, 1).
 
 attack(double_encoding).
-attributes(double_encoding , [120, low, medium]).
+attributes(double_encoding , [120, 'low', 'medium']).
 weakness(double_encoding, improper_handling_of_alternate_encoding, 1).
 weakness(double_encoding, encoding_error, 1).
 weakness(double_encoding, improper_handling_of_url_encoding, 1).
@@ -183,7 +183,7 @@ weakness(double_encoding, incorrect_comparison, 1).
 weakness(double_encoding, incomplete_denylist_to_cross_site_scripting, 1).
 
 attack(using_leading_ghost_character_sequences_to_bypass_input_filters).
-attributes(using_leading_ghost_character_sequences_to_bypass_input_filters , [3, medium, medium]).
+attributes(using_leading_ghost_character_sequences_to_bypass_input_filters , [3, 'medium', 'medium']).
 weakness(using_leading_ghost_character_sequences_to_bypass_input_filters, improper_handling_of_alternate_encoding, 1).
 weakness(using_leading_ghost_character_sequences_to_bypass_input_filters, improper_resolution_of_path_equivalence, 1).
 weakness(using_leading_ghost_character_sequences_to_bypass_input_filters, encoding_error, 1).
@@ -198,12 +198,12 @@ weakness(using_leading_ghost_character_sequences_to_bypass_input_filters, incorr
 weakness(using_leading_ghost_character_sequences_to_bypass_input_filters, improper_neutralization, 1).
 
 attack(using_alternative_ip_address_encodings).
-attributes(using_alternative_ip_address_encodings , [4, medium, high]).
+attributes(using_alternative_ip_address_encodings , [4, 'medium', 'high']).
 weakness(using_alternative_ip_address_encodings, reliance_on_ip_address_for_authentication, 1).
 weakness(using_alternative_ip_address_encodings, improper_handling_of_alternate_encoding, 1).
 
 attack(exploiting_multiple_input_interpretation_layers).
-attributes(exploiting_multiple_input_interpretation_layers , [43, medium, high]).
+attributes(exploiting_multiple_input_interpretation_layers , [43, 'medium', 'high']).
 weakness(exploiting_multiple_input_interpretation_layers, incorrect_behavior_order_early_validation, 1).
 weakness(exploiting_multiple_input_interpretation_layers, incorrect_behavior_order_validate_before_filter, 1).
 weakness(exploiting_multiple_input_interpretation_layers, incomplete_list_of_disallowed_inputs, 1).
@@ -216,7 +216,7 @@ weakness(exploiting_multiple_input_interpretation_layers, incorrect_comparison, 
 weakness(exploiting_multiple_input_interpretation_layers, improper_neutralization, 1).
 
 attack(embedding_null_bytes).
-attributes(embedding_null_bytes , [52, high, high]).
+attributes(embedding_null_bytes , [52, 'high', 'high']).
 weakness(embedding_null_bytes, improper_neutralization_of_null_byte_or_nul_character, 1).
 weakness(embedding_null_bytes, encoding_error, 1).
 weakness(embedding_null_bytes, improper_handling_of_alternate_encoding, 1).
@@ -226,7 +226,7 @@ weakness(embedding_null_bytes, incorrect_comparison, 1).
 weakness(embedding_null_bytes, improper_neutralization, 1).
 
 attack(postfix_null_terminate_and_backslash).
-attributes(postfix_null_terminate_and_backslash , [53, high, high]).
+attributes(postfix_null_terminate_and_backslash , [53, 'high', 'high']).
 weakness(postfix_null_terminate_and_backslash, improper_neutralization_of_null_byte_or_nul_character, 1).
 weakness(postfix_null_terminate_and_backslash, encoding_error, 1).
 weakness(postfix_null_terminate_and_backslash, improper_handling_of_alternate_encoding, 1).
@@ -236,7 +236,7 @@ weakness(postfix_null_terminate_and_backslash, incorrect_comparison, 1).
 weakness(postfix_null_terminate_and_backslash, improper_neutralization, 1).
 
 attack(using_slashes_and_url_encoding_combined_to_bypass_validation_logic).
-attributes(using_slashes_and_url_encoding_combined_to_bypass_validation_logic , [64, high, high]).
+attributes(using_slashes_and_url_encoding_combined_to_bypass_validation_logic , [64, 'high', 'high']).
 weakness(using_slashes_and_url_encoding_combined_to_bypass_validation_logic, improper_handling_of_url_encoding, 1).
 weakness(using_slashes_and_url_encoding_combined_to_bypass_validation_logic, improper_handling_of_alternate_encoding, 1).
 weakness(using_slashes_and_url_encoding_combined_to_bypass_validation_logic, encoding_error, 1).
@@ -248,7 +248,7 @@ weakness(using_slashes_and_url_encoding_combined_to_bypass_validation_logic, inc
 weakness(using_slashes_and_url_encoding_combined_to_bypass_validation_logic, improper_neutralization, 1).
 
 attack(using_unicode_encoding_to_bypass_validation_logic).
-attributes(using_unicode_encoding_to_bypass_validation_logic , [71, medium, high]).
+attributes(using_unicode_encoding_to_bypass_validation_logic , [71, 'medium', 'high']).
 weakness(using_unicode_encoding_to_bypass_validation_logic, improper_handling_of_unicode_encoding, 1).
 weakness(using_unicode_encoding_to_bypass_validation_logic, incorrect_behavior_order_early_validation, 1).
 weakness(using_unicode_encoding_to_bypass_validation_logic, incorrect_behavior_order_validate_before_canonicalize, 1).
@@ -262,7 +262,7 @@ weakness(using_unicode_encoding_to_bypass_validation_logic, incorrect_comparison
 weakness(using_unicode_encoding_to_bypass_validation_logic, incomplete_denylist_to_cross_site_scripting, 1).
 
 attack(url_encoding).
-attributes(url_encoding, [72, high, high]).
+attributes(url_encoding, [72, 'high', 'high']).
 weakness(url_encoding, improper_handling_of_alternate_encoding, 1).
 weakness(url_encoding, improper_handling_of_url_encoding, 1).
 weakness(url_encoding, encoding_error, 1).
@@ -271,7 +271,7 @@ weakness(url_encoding, improper_neutralization_of_special_elements_in_output_use
 weakness(url_encoding, improper_input_validation, 1).
 
 attack(using_escaped_slashes_in_alternate_encoding).
-attributes(using_escaped_slashes_in_alternate_encoding , [78, high, high]).
+attributes(using_escaped_slashes_in_alternate_encoding , [78, 'high', 'high']).
 weakness(using_escaped_slashes_in_alternate_encoding, incorrect_behavior_order_validate_before_canonicalize, 1).
 weakness(using_escaped_slashes_in_alternate_encoding, incorrect_behavior_order_validate_before_filter, 1).
 weakness(using_escaped_slashes_in_alternate_encoding, improper_handling_of_alternate_encoding, 1).
@@ -284,7 +284,7 @@ weakness(using_escaped_slashes_in_alternate_encoding, incorrect_comparison, 1).
 weakness(using_escaped_slashes_in_alternate_encoding, improper_neutralization, 1).
 
 attack(using_slashes_in_alternate_encoding).
-attributes(using_slashes_in_alternate_encoding , [79, high, high]).
+attributes(using_slashes_in_alternate_encoding , [79, 'high', 'high']).
 weakness(using_slashes_in_alternate_encoding, improper_handling_of_alternate_encoding, 1).
 weakness(using_slashes_in_alternate_encoding, incorrect_behavior_order_validate_before_canonicalize, 1).
 weakness(using_slashes_in_alternate_encoding, incorrect_behavior_order_validate_before_filter, 1).
@@ -298,7 +298,7 @@ weakness(using_slashes_in_alternate_encoding, incorrect_comparison, 1).
 weakness(using_slashes_in_alternate_encoding, improper_neutralization, 1).
 
 attack(using_utf_8_encoding_to_bypass_validation_logic).
-attributes(using_utf_8_encoding_to_bypass_validation_logic , [80, high, high]).
+attributes(using_utf_8_encoding_to_bypass_validation_logic , [80, 'high', 'high']).
 weakness(using_utf_8_encoding_to_bypass_validation_logic, improper_handling_of_alternate_encoding, 1).
 weakness(using_utf_8_encoding_to_bypass_validation_logic, encoding_error, 1).
 weakness(using_utf_8_encoding_to_bypass_validation_logic, incorrect_behavior_order_validate_before_canonicalize, 1).
