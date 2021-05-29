@@ -1,0 +1,60 @@
+FUNCTION_BLOCK environmental_score
+
+	VAR_INPUT               // ulazne varijable
+		collateral_damage_potential : REAL;
+		target_distribution : REAL;
+	END_VAR
+
+	VAR_OUTPUT              // izlazne varijable
+		environmental_score : REAL;
+	END_VAR
+
+	FUZZIFY collateral_damage_potential
+        TERM none := (0, 1) (0.1, 0)
+        TERM low := (0, 0) (0.1, 1) (0.3, 0)
+        TERM medium := (0.2, 0) (0.3, 1) (0.5, 0)
+        TERM high := (0.4, 0) (0.5, 1)
+	END_FUZZIFY
+
+	FUZZIFY target_distribution
+        TERM none := (0, 1) (0.3, 0)
+        TERM low := (0, 0) (0.25, 1) (0.5, 0)
+        TERM medium := (0.4, 0) (0.75, 1) (0.9, 0)
+        TERM high := (0.85, 0) (1, 1)
+	END_FUZZIFY
+
+	DEFUZZIFY environmental_score
+        TERM very_low := (0, 0.5) (0.1, 1) (0.2, 0)
+        TERM low := (0.05, 0) (0.2, 1) (0.35, 0)
+        TERM medium := (0.3, 0) (0.45, 1) (0.6, 0)
+        TERM high := (0.55, 0) (0.75, 1) (0.85, 0)
+        TERM very_high := (0.8, 0) (1, 1)
+		METHOD : COG;
+		DEFAULT := 0;
+	END_DEFUZZIFY
+
+	RULEBLOCK blok1
+		AND : MIN;
+		ACT : MIN;
+		ACCU : MAX;
+
+        RULE 1 : IF collateral_damage_potential IS none AND target_distribution IS none then environmental_score IS very_low;
+        RULE 2 : IF collateral_damage_potential IS none AND target_distribution IS low then environmental_score IS low;
+        RULE 3 : IF collateral_damage_potential IS none AND target_distribution IS medium then environmental_score IS low;
+        RULE 4 : IF collateral_damage_potential IS none AND target_distribution IS high then environmental_score IS medium;
+        RULE 5 : IF collateral_damage_potential IS low AND target_distribution IS  none then environmental_score IS very_low;
+        RULE 6 : IF collateral_damage_potential IS low AND target_distribution IS low then environmental_score IS low;
+        RULE 7 : IF collateral_damage_potential IS low AND target_distribution IS medium then environmental_score IS low;
+        RULE 8 : IF collateral_damage_potential IS low AND target_distribution IS high then environmental_score IS medium;
+        RULE 9 : IF collateral_damage_potential IS medium AND target_distribution IS  none then environmental_score IS low;
+        RULE 10 : IF collateral_damage_potential IS medium AND target_distribution IS low then environmental_score IS medium;
+        RULE 11 : IF collateral_damage_potential IS medium AND target_distribution IS medium then environmental_score IS medium;
+        RULE 12 : IF collateral_damage_potential IS medium AND target_distribution IS high then environmental_score IS medium;
+        RULE 13 : IF collateral_damage_potential IS high AND target_distribution IS  none then environmental_score IS medium;
+        RULE 14 : IF collateral_damage_potential IS high AND target_distribution IS low then environmental_score IS high;
+        RULE 15 : IF collateral_damage_potential IS high AND target_distribution IS medium then environmental_score IS very_high;
+        RULE 16 : IF collateral_damage_potential IS high AND target_distribution IS high then environmental_score IS very_high;
+
+	END_RULEBLOCK
+
+END_FUNCTION_BLOCK

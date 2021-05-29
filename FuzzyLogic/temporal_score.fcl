@@ -1,0 +1,101 @@
+
+FUNCTION_BLOCK base_value_fs
+
+	VAR_INPUT               // ulazne varijable
+		exploitability : REAL;
+		remediation_level : REAL;
+		report_confidence : REAL;
+	END_VAR
+
+	VAR_OUTPUT              // izlazne varijable
+		exploitability_value : REAL;
+	END_VAR
+
+	FUZZIFY exploitability
+		TERM unproven := (0.75, 0.37) (0.85, 1) (0.88, 0) (1, 0);
+		TERM proof_of_concept := (0.75, 0) (0.835, 0) (0.9, 1) (0.955, 0) (1, 0);
+		TERM functional := (0.75, 0) (0.93, 0) (0.95, 1) (0.98, 0) (1, 0);
+		TERM high := (0.75, 0) (0.965, 0) (1, 1);
+	END_FUZZIFY
+
+	FUZZIFY remediation_level
+		TERM official_fix := (0.8, 0.1) (0.87, 1) (0.89, 0) (1, 0);
+		TERM temporary_fix := (0.8, 0) (0.875, 0) (0.9, 1) (0.925, 0) (1, 0);
+		TERM workaround := (0.8, 0) (0.9, 0) (0.935, 1) (0.96, 0) (1, 0);
+		TERM unavailable := (0.8, 0) (0.935, 0) (0.975, 1) (1, 0);
+	END_FUZZIFY
+
+	FUZZIFY report_confidence
+		TERM unconfirmed := (0.85, 0.38) (0.87, 1) (0.94, 0) (1, 0);
+		TERM uncorroborated := (0.85, 0) (0.9, 0) (0.93, 1) (0.975, 0) (1, 0);
+		TERM confirmed := (0.85, 0) (0.96, 0) (0.98, 1) (1, 0.58);
+	END_FUZZIFY
+
+	DEFUZZIFY exploitability_value
+        TERM very_low := (0, 0.5) (0.1, 1) (0.2, 0)
+        TERM low := (0.05, 0) (0.2, 1) (0.35, 0)
+        TERM medium := (0.3, 0) (0.45, 1) (0.6, 0)
+        TERM high := (0.55, 0) (0.75, 1) (0.85, 0)
+        TERM very_high := (0.8, 0) (1, 1)
+
+		METHOD : COG;
+		DEFAULT := 0;
+	END_DEFUZZIFY
+
+	RULEBLOCK blok1
+		AND : MIN;
+		ACT : MIN;
+		ACCU : MAX;
+
+        RULE 1 :  IF exploitability IS unproven AND remediation_level IS official_fix AND report_confidence IS unconfirmed THEN exploitability_value IS very_low;
+        RULE 2 :  IF exploitability IS unproven AND remediation_level IS official_fix AND report_confidence IS uncorroborated THEN exploitability_value IS very_low;
+        RULE 3 :  IF exploitability IS unproven AND remediation_level IS official_fix AND report_confidence IS confirmed THEN exploitability_value IS low;
+        RULE 4 :  IF exploitability IS unproven AND remediation_level IS temporary_fix AND report_confidence IS unconfirmed THEN exploitability_value IS very_low;
+        RULE 5 :  IF exploitability IS unproven AND remediation_level IS temporary_fix AND report_confidence IS uncorroborated THEN exploitability_value IS very_low;
+        RULE 6 :  IF exploitability IS unproven AND remediation_level IS temporary_fix AND report_confidence IS confirmed THEN exploitability_value IS low;
+        RULE 7 :  IF exploitability IS unproven AND remediation_level IS unavailable AND report_confidence IS unconfirmed THEN exploitability_value IS very_low;
+        RULE 8 :  IF exploitability IS unproven AND remediation_level IS unavailable AND report_confidence IS uncorroborated THEN exploitability_value IS low;
+        RULE 9 :  IF exploitability IS unproven AND remediation_level IS unavailable AND report_confidence IS confirmed THEN exploitability_value IS medium;
+        RULE 10 :  IF exploitability IS unproven AND remediation_level IS workaround AND report_confidence IS unconfirmed THEN exploitability_value IS low;
+        RULE 11 :  IF exploitability IS unproven AND remediation_level IS workaround AND report_confidence IS uncorroborated THEN exploitability_value IS medium;
+        RULE 12 :  IF exploitability IS unproven AND remediation_level IS workaround AND report_confidence IS confirmed THEN exploitability_value IS medium;
+        RULE 13 :  IF exploitability IS proof_of_concept AND remediation_level IS official_fix AND report_confidence IS unconfirmed THEN exploitability_value IS very_low;
+        RULE 14 :  IF exploitability IS proof_of_concept AND remediation_level IS official_fix AND report_confidence IS uncorroborated THEN exploitability_value IS low;
+        RULE 15 :  IF exploitability IS proof_of_concept AND remediation_level IS official_fix AND report_confidence IS confirmed THEN exploitability_value IS low;
+        RULE 16 :  IF exploitability IS proof_of_concept AND remediation_level IS temporary_fix AND report_confidence IS unconfirmed THEN exploitability_value IS very_low;
+        RULE 17 :  IF exploitability IS proof_of_concept AND remediation_level IS temporary_fix AND report_confidence IS uncorroborated THEN exploitability_value IS low;
+        RULE 18 :  IF exploitability IS proof_of_concept AND remediation_level IS temporary_fix AND report_confidence IS confirmed THEN exploitability_value IS medium;
+        RULE 19 :  IF exploitability IS proof_of_concept AND remediation_level IS unavailable AND report_confidence IS unconfirmed THEN exploitability_value IS low;
+        RULE 20 :  IF exploitability IS proof_of_concept AND remediation_level IS unavailable AND report_confidence IS uncorroborated THEN exploitability_value IS medium;
+        RULE 21 :  IF exploitability IS proof_of_concept AND remediation_level IS unavailable AND report_confidence IS confirmed THEN exploitability_value IS medium;
+        RULE 22 :  IF exploitability IS proof_of_concept AND remediation_level IS workaround AND report_confidence IS unconfirmed THEN exploitability_value IS medium;
+        RULE 23 :  IF exploitability IS proof_of_concept AND remediation_level IS workaround AND report_confidence IS uncorroborated THEN exploitability_value IS medium;
+        RULE 24 :  IF exploitability IS proof_of_concept AND remediation_level IS workaround AND report_confidence IS confirmed THEN exploitability_value IS high;
+        RULE 25 :  IF exploitability IS functional AND remediation_level IS official_fix AND report_confidence IS unconfirmed THEN exploitability_value IS low;
+        RULE 26 :  IF exploitability IS functional AND remediation_level IS official_fix AND report_confidence IS uncorroborated THEN exploitability_value IS low;
+        RULE 27 :  IF exploitability IS functional AND remediation_level IS official_fix AND report_confidence IS confirmed THEN exploitability_value IS medium;
+        RULE 28 :  IF exploitability IS functional AND remediation_level IS temporary_fix AND report_confidence IS unconfirmed THEN exploitability_value IS low;
+        RULE 29 :  IF exploitability IS functional AND remediation_level IS temporary_fix AND report_confidence IS uncorroborated THEN exploitability_value IS medium;
+        RULE 30 :  IF exploitability IS functional AND remediation_level IS temporary_fix AND report_confidence IS confirmed THEN exploitability_value IS medium;
+        RULE 31 :  IF exploitability IS functional AND remediation_level IS unavailable AND report_confidence IS unconfirmed THEN exploitability_value IS medium;
+        RULE 32 :  IF exploitability IS functional AND remediation_level IS unavailable AND report_confidence IS uncorroborated THEN exploitability_value IS medium;
+        RULE 33 :  IF exploitability IS functional AND remediation_level IS unavailable AND report_confidence IS confirmed THEN exploitability_value IS high;
+        RULE 34 :  IF exploitability IS functional AND remediation_level IS workaround AND report_confidence IS unconfirmed THEN exploitability_value IS medium;
+        RULE 35 :  IF exploitability IS functional AND remediation_level IS workaround AND report_confidence IS uncorroborated THEN exploitability_value IS high;
+        RULE 36 :  IF exploitability IS functional AND remediation_level IS workaround AND report_confidence IS confirmed THEN exploitability_value IS very_high;
+        RULE 37 :  IF exploitability IS high AND remediation_level IS official_fix AND report_confidence IS unconfirmed THEN exploitability_value IS low;
+        RULE 38 :  IF exploitability IS high AND remediation_level IS official_fix AND report_confidence IS uncorroborated THEN exploitability_value IS medium;
+        RULE 39 :  IF exploitability IS high AND remediation_level IS official_fix AND report_confidence IS confirmed THEN exploitability_value IS medium;
+        RULE 40 :  IF exploitability IS high AND remediation_level IS temporary_fix AND report_confidence IS unconfirmed THEN exploitability_value IS medium;
+        RULE 41 :  IF exploitability IS high AND remediation_level IS temporary_fix AND report_confidence IS uncorroborated THEN exploitability_value IS medium;
+        RULE 42 :  IF exploitability IS high AND remediation_level IS temporary_fix AND report_confidence IS confirmed THEN exploitability_value IS high;
+        RULE 43 :  IF exploitability IS high AND remediation_level IS unavailable AND report_confidence IS unconfirmed THEN exploitability_value IS medium;
+        RULE 44 :  IF exploitability IS high AND remediation_level IS unavailable AND report_confidence IS uncorroborated THEN exploitability_value IS high;
+        RULE 45 :  IF exploitability IS high AND remediation_level IS unavailable AND report_confidence IS confirmed THEN exploitability_value IS very_high;
+        RULE 46 :  IF exploitability IS high AND remediation_level IS workaround AND report_confidence IS unconfirmed THEN exploitability_value IS high;
+        RULE 47 :  IF exploitability IS high AND remediation_level IS workaround AND report_confidence IS uncorroborated THEN exploitability_value IS very_high;
+        RULE 48 :  IF exploitability IS high AND remediation_level IS workaround AND report_confidence IS confirmed THEN exploitability_value IS very_high;
+
+	END_RULEBLOCK
+
+END_FUNCTION_BLOCK

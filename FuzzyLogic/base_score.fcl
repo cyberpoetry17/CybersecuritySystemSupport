@@ -1,0 +1,93 @@
+
+FUNCTION_BLOCK base_score_fs
+
+	VAR_INPUT               // ulazne varijable
+		access_vector : REAL;
+		access_complexity : REAL;
+		authentication : REAL;
+		confidentiality_impact : REAL;
+        integrity_impact : REAL;
+        availability_impact : REAL;
+	END_VAR
+
+	VAR_OUTPUT              // izlazne varijable
+		base_score : REAL;
+	END_VAR
+
+	FUZZIFY access_vector
+		TERM local := (0.55, 0) (0.7, 1) (0.85, 0);
+		TERM remote := (0.75, 0) (1, 1);
+	END_FUZZIFY
+
+	FUZZIFY access_complexity
+		TERM high := (0.75, 0) (0.8, 1) (0.95, 0);
+		TERM low := (0.85, 0) (1, 1);
+	END_FUZZIFY
+
+	FUZZIFY authentication
+		TERM required := (0.6, 1) (0.8, 0);
+		TERM not_required := (0.7, 0) (1, 1);
+	END_FUZZIFY
+
+	FUZZIFY confidentiality_impact
+		TERM none := (0, 1) (0.4, 0);
+		TERM partial := (0.35, 0) (0.7, 1) (0.8, 0);
+		TERM complete := (0.75, 0) (1, 1);
+	END_FUZZIFY
+
+    FUZZIFY integrity_impact
+        TERM none := (0, 1) (0.4, 0);
+		TERM partial := (0.35, 0) (0.7, 1) (0.8, 0);
+		TERM complete := (0.75, 0) (1, 1);
+    END_FUZZIFY
+
+    FUZZIFY availability_impact
+        TERM none := (0, 1) (0.4, 0);
+		TERM partial := (0.35, 0) (0.7, 1) (0.8, 0);
+		TERM complete := (0.75, 0) (1, 1);
+    END_FUZZIFY
+        
+	DEFUZZIFY base_score
+        TERM very_low := (0, 0.5) (0.1, 1) (0.2, 0)
+        TERM low := (0.05, 0) (0.2, 1) (0.35, 0)
+        TERM medium := (0.3, 0) (0.45, 1) (0.6, 0)
+        TERM high := (0.55, 0) (0.75, 1) (0.85, 0)
+        TERM very_high := (0.8, 0) (1, 1)
+        
+		METHOD : COG;
+		DEFAULT := 0;
+	END_DEFUZZIFY
+
+	RULEBLOCK blok1
+		AND : MIN;
+		ACT : MIN;
+		ACCU : MAX;
+
+        RULE 1 : IF access_vector IS local AND access_complexity IS high AND authentication IS required AND confidentiality_impact IS none THEN base_score IS very_low;
+		RULE 2 : IF access_vector IS local AND access_complexity IS high AND authentication IS required AND confidentiality_impact IS partial THEN base_score IS low;
+		RULE 3 : IF access_vector IS local AND access_complexity IS high AND authentication IS required AND confidentiality_impact IS complete THEN base_score IS medium;
+		RULE 4 : IF access_vector IS local AND access_complexity IS high AND authentication IS not_required AND confidentiality_impact IS none THEN base_score IS very_low;
+		RULE 5 : IF access_vector IS local AND access_complexity IS high AND authentication IS not_required AND confidentiality_impact IS partial THEN base_score IS medium;
+		RULE 6 : IF access_vector IS local AND access_complexity IS high AND authentication IS not_required AND confidentiality_impact IS complete THEN base_score IS high;
+		RULE 7 : IF access_vector IS local AND access_complexity IS low AND authentication IS required AND confidentiality_impact IS none THEN base_score IS very_low;
+		RULE 8 : IF access_vector IS local AND access_complexity IS low AND authentication IS required AND confidentiality_impact IS partial THEN base_score IS low;
+		RULE 9 : IF access_vector IS local AND access_complexity IS low AND authentication IS required AND confidentiality_impact IS complete THEN base_score IS medium;
+		RULE 10 : IF access_vector IS local AND access_complexity IS low AND authentication IS not_required AND confidentiality_impact IS none THEN base_score IS very_low;
+		RULE 11 : IF access_vector IS local AND access_complexity IS low AND authentication IS not_required AND confidentiality_impact IS partial THEN base_score IS medium;
+		RULE 12 : IF access_vector IS local AND access_complexity IS low AND authentication IS not_required AND confidentiality_impact IS complete THEN base_score IS very_high;
+		RULE 13 : IF access_vector IS remote AND access_complexity IS high AND authentication IS required AND confidentiality_impact IS none THEN base_score IS very_low;
+		RULE 14 : IF access_vector IS remote AND access_complexity IS high AND authentication IS required AND confidentiality_impact IS partial THEN base_score IS medium;
+		RULE 15 : IF access_vector IS remote AND access_complexity IS high AND authentication IS required AND confidentiality_impact IS complete THEN base_score IS medium;
+		RULE 16 : IF access_vector IS remote AND access_complexity IS high AND authentication IS not_required AND confidentiality_impact IS none THEN base_score IS very_low;
+		RULE 17 : IF access_vector IS remote AND access_complexity IS high AND authentication IS not_required AND confidentiality_impact IS partial THEN base_score IS high;
+		RULE 18 : IF access_vector IS remote AND access_complexity IS high AND authentication IS not_required AND confidentiality_impact IS complete THEN base_score IS very_high;
+		RULE 19 : IF access_vector IS remote AND access_complexity IS low AND authentication IS required AND confidentiality_impact IS none THEN base_score IS very_low;
+		RULE 20 : IF access_vector IS remote AND access_complexity IS low AND authentication IS required AND confidentiality_impact IS partial THEN base_score IS medium;
+		RULE 21 : IF access_vector IS remote AND access_complexity IS low AND authentication IS required AND confidentiality_impact IS complete THEN base_score IS high;
+		RULE 22 : IF access_vector IS remote AND access_complexity IS low AND authentication IS not_required AND confidentiality_impact IS none THEN base_score IS very_low;
+		RULE 23 : IF access_vector IS remote AND access_complexity IS low AND authentication IS not_required AND confidentiality_impact IS partial THEN base_score IS high;
+		RULE 24 : IF access_vector IS remote AND access_complexity IS low AND authentication IS not_required AND confidentiality_impact IS complete THEN base_score IS very_high;
+
+	END_RULEBLOCK
+
+END_FUNCTION_BLOCK
