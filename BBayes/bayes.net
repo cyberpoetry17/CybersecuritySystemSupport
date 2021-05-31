@@ -2,7 +2,7 @@ net
 {
      node_size = (0 0);
      name = "New BN";
-     tree = "(C1,C2,C3,C4,C5,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26)";
+     tree = "(C1,C2,C3,C4,C5,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26,C31,C30,C27,C28,C29,C41,C46,C36,C35,C32,C33,C34,C40,C37,C38,C39,C45,C42,C43,C44,C50,C51,C52,C53,C54)";
      UnBBayes_Color_Probabilistic_Description = "-256";
      UnBBayes_Color_Probabilistic_Explanation = "-16711936";
 }
@@ -17,7 +17,7 @@ node CrossSiteIdentification
 node Country
 {
      label = "C2";
-     position = (109 46);
+     position = (109 13);
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
@@ -45,14 +45,14 @@ node Industry
 node NoOfEmployees_1
 {
      label = "C7";
-     position = (832 43);
+     position = (828 31);
      states = ("250" "500" "1500" "2500");
 }
 
 node OS_1
 {
      label = "C8";
-     position = (1016 17);
+     position = (1016 50);
      states = ("Windows" "Linux" "Mac" "Android");
 }
 
@@ -66,14 +66,14 @@ node Industry_1
 node Country_1
 {
      label = "C10";
-     position = (680 0);
+     position = (680 60);
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
 node SessionSidejacking
 {
      label = "C11";
-     position = (810 155);
+     position = (826 179);
      states = ("Success" "Failure");
 }
 
@@ -101,14 +101,14 @@ node Industry_2
 node Country_2
 {
      label = "C15";
-     position = (1243 48);
+     position = (1243 60);
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
 node CrossSiteTracing
 {
      label = "C16";
-     position = (1302 153);
+     position = (1301 157);
      states = ("Success" "Failure");
 }
 
@@ -122,7 +122,7 @@ node NoOfEmployees_3
 node OS_3
 {
      label = "C18";
-     position = (405 316);
+     position = (405 315);
      states = ("Windows" "Linux" "Mac" "Android");
 }
 
@@ -143,21 +143,21 @@ node Country_3
 node UnauthorizedUseOfDeviceResources
 {
      label = "C21";
-     position = (153 438);
+     position = (153 441);
      states = ("Success" "Failure");
 }
 
 node NoOfEmployees_4
 {
      label = "C22";
-     position = (780 317);
+     position = (781 345);
      states = ("1-250" "251-500" "501-1500" "1500+");
 }
 
 node OS_4
 {
      label = "C23";
-     position = (964 317);
+     position = (966 316);
      states = ("Windows" "Linux" "Mac" "Android");
 }
 
@@ -184,145 +184,145 @@ node ForcefulBrowsing
 
 node CreateMaliciousContent_1
 {
-     label = "C14";
-     position = (1364 477);
+     label = "C31";
+     position = (1364 480);
      states = ("Success" "Fail");
 }
 
 node Country_4_1_1
 {
-     label = "C15";
-     position = (1182 335);
+     label = "C30";
+     position = (1182 302);
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
 node NoOfEmployees_4_1_1
 {
-     label = "C16";
-     position = (1296 342);
+     label = "C27";
+     position = (1296 356);
      states = ("1-250" "251-500" "501-1500" "1500+");
 }
 
 node OS_5
 {
-     label = "C17";
+     label = "C28";
      position = (1405 365);
      states = ("Windows" "Linux" "Mac" "Android");
 }
 
 node Industry_4_1_1
 {
-     label = "C18";
-     position = (1530 343);
+     label = "C29";
+     position = (1530 390);
      states = ("Mining" "Finance" "Administration");
 }
 
 node XMLRoutingDetourAttacks
 {
-     label = "C20";
-     position = (694 798);
+     label = "C41";
+     position = (693 800);
      states = ("Success" "Failure");
 }
 
 node ContentSpoofingViaApplicationAPIManipulation
 {
-     label = "C21";
+     label = "C46";
      position = (1323 758);
      states = ("Success" "Failure");
 }
 
 node ManipulatingHiddenFields
 {
-     label = "C27";
-     position = (223 749);
+     label = "C36";
+     position = (223 752);
      states = ("Success" "Failure");
 }
 
 node Country_6
 {
-     label = "C29";
+     label = "C35";
      position = (147 597);
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
 node NoOfEmployees_6
 {
-     label = "C30";
+     label = "C32";
      position = (255 628);
      states = ("1-250" "251-500" "501-1500" "1500+");
 }
 
 node OS_6
 {
-     label = "C31";
+     label = "C33";
      position = (330 631);
      states = ("Windows" "Linux" "Mac" "Android");
 }
 
 node Industry_6
 {
-     label = "C32";
-     position = (395 678);
+     label = "C34";
+     position = (394 694);
      states = ("Mining" "Finance" "Administration");
 }
 
 node Country_7
 {
-     label = "C38";
+     label = "C40";
      position = (595 605);
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
 node NoOfEmployees_7
 {
-     label = "C39";
+     label = "C37";
      position = (713 609);
      states = ("1-250" "251-500" "501-1500" "1500+");
 }
 
 node OS_7
 {
-     label = "C40";
-     position = (811 614);
+     label = "C38";
+     position = (811 613);
      states = ("Windows" "Linux" "Mac" "Android");
 }
 
 node Industry_7
 {
-     label = "C41";
+     label = "C39";
      position = (925 647);
      states = ("Mining" "Finance" "Administration");
 }
 
 node Country_8
 {
-     label = "C42";
-     position = (1078 595);
+     label = "C45";
+     position = (1078 548);
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
 node NoOfEmployees_8
 {
-     label = "C43";
+     label = "C42";
      position = (1194 594);
      states = ("1-250" "251-500" "501-1500" "1500+");
 }
 
 node OS_8
 {
-     label = "C44";
-     position = (1343 585);
+     label = "C43";
+     position = (1342 584);
      states = ("Windows" "Linux" "Mac" "Android");
 }
 
 node Industry_8
 {
-     label = "C45";
+     label = "C44";
      position = (1530 607);
      states = ("Mining" "Finance" "Administration");
 }
 
-node ForcedUseOfCorruptedFiles
+node ForceUseOfCorruptedFiles
 {
      label = "C50";
      position = (335 1115);
@@ -357,7 +357,7 @@ node Industry_9
      states = ("Mining" "Finance" "Administration");
 }
 
-potential (CrossSiteIdentification | NoOfEmployees OS Country)
+potential (CrossSiteIdentification | Industry NoOfEmployees OS Country)
 {
  data = ((((( 0.6 0.4 )
 ( 0.8 0.19999999 )
@@ -3165,7 +3165,7 @@ potential (Industry_8)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (ForcedUseOfCorruptedFiles | NoOfEmployees_9 Country_9 Industry_9 OS_9)
+potential (ForceUseOfCorruptedFiles | NoOfEmployees_9 Country_9 Industry_9 OS_9)
 {
  data = ((((( 0.1 0.9 )
 ( 0.1 0.90000004 )
