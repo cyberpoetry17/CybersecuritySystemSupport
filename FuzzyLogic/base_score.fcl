@@ -6,8 +6,6 @@ FUNCTION_BLOCK base_score_fs
 		access_complexity : REAL;
 		authentication : REAL;
 		confidentiality_impact : REAL;
-        integrity_impact : REAL;
-        availability_impact : REAL;
 	END_VAR
 
 	VAR_OUTPUT              // izlazne varijable
@@ -34,18 +32,6 @@ FUNCTION_BLOCK base_score_fs
 		TERM partial := (0.35, 0) (0.7, 1) (0.8, 0);
 		TERM complete := (0.75, 0) (1, 1);
 	END_FUZZIFY
-
-    FUZZIFY integrity_impact
-        TERM none := (0, 1) (0.4, 0);
-		TERM partial := (0.35, 0) (0.7, 1) (0.8, 0);
-		TERM complete := (0.75, 0) (1, 1);
-    END_FUZZIFY
-
-    FUZZIFY availability_impact
-        TERM none := (0, 1) (0.4, 0);
-		TERM partial := (0.35, 0) (0.7, 1) (0.8, 0);
-		TERM complete := (0.75, 0) (1, 1);
-    END_FUZZIFY
         
 	DEFUZZIFY base_score
         TERM very_low := (0, 0.5) (0.1, 1) (0.2, 0)
