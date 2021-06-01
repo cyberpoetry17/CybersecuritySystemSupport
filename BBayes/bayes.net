@@ -21,7 +21,7 @@ node Country
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees
+node CompanySize
 {
      label = "C3";
      position = (210 30);
@@ -42,7 +42,7 @@ node Industry
      states = ("Mining" "Finance" "Administration");
 }
 
-node NoOfEmployees_1
+node CompanySize_1
 {
      label = "C7";
      position = (828 31);
@@ -77,7 +77,7 @@ node SessionSidejacking
      states = ("Success" "Failure");
 }
 
-node NoOfEmployees_2
+node CompanySize_2
 {
      label = "C12";
      position = (1344 31);
@@ -112,7 +112,7 @@ node CrossSiteTracing
      states = ("Success" "Failure");
 }
 
-node NoOfEmployees_3
+node CompanySize_3
 {
      label = "C17";
      position = (221 316);
@@ -147,7 +147,7 @@ node UnauthorizedUseOfDeviceResources
      states = ("Success" "Failure");
 }
 
-node NoOfEmployees_4
+node CompanySize_4
 {
      label = "C22";
      position = (781 345);
@@ -196,7 +196,7 @@ node Country_4_1_1
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_4_1_1
+node CompanySize_4_1_1
 {
      label = "C27";
      position = (1296 356);
@@ -245,7 +245,7 @@ node Country_6
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_6
+node CompanySize_6
 {
      label = "C32";
      position = (255 628);
@@ -273,7 +273,7 @@ node Country_7
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_7
+node CompanySize_7
 {
      label = "C37";
      position = (713 609);
@@ -301,7 +301,7 @@ node Country_8
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_8
+node CompanySize_8
 {
      label = "C42";
      position = (1194 594);
@@ -336,7 +336,7 @@ node Country_9
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_9
+node CompanySize_9
 {
      label = "C52";
      position = (94 909);
@@ -371,7 +371,7 @@ node Country_10
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_10
+node CompanySize_10
 {
      label = "C3";
      position = (789 880);
@@ -399,7 +399,7 @@ node Country_11
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_11
+node CompanySize_11
 {
      label = "C7";
      position = (1203 892);
@@ -441,7 +441,7 @@ node Country_12
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_12
+node CompanySize_12
 {
      label = "C13";
      position = (1551 920);
@@ -476,7 +476,7 @@ node Country_13
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_13
+node CompanySize_13
 {
      label = "C23";
      position = (510 1022);
@@ -511,7 +511,7 @@ node Country_14
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_14
+node CompanySize_14
 {
      label = "C28";
      position = (1117 1125);
@@ -553,7 +553,7 @@ node Country_15
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_15
+node CompanySize_15
 {
      label = "C4";
      position = (400 1328);
@@ -588,7 +588,7 @@ node Country_16
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_16
+node CompanySize_16
 {
      label = "C9";
      position = (755 1321);
@@ -609,7 +609,7 @@ node Country_17
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_17
+node CompanySize_17
 {
      label = "C12";
      position = (1068 1311);
@@ -644,7 +644,7 @@ node Country_18
      states = ("Japan" "USA" "France" "Canada" "Australia" "India");
 }
 
-node NoOfEmployees_18
+node CompanySize_18
 {
      label = "C17";
      position = (1407 1297);
@@ -672,7 +672,7 @@ node OS_18
      states = ("Windows" "Linux" "Mac" "Android");
 }
 
-potential (CrossSiteIdentification | Industry NoOfEmployees OS Country)
+potential (CrossSiteIdentification | Industry CompanySize OS Country)
 {
  data = ((((( 0.6 0.39999998 )
 ( 0.8 0.19999999 )
@@ -969,7 +969,7 @@ potential (Country)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees)
+potential (CompanySize)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -984,7 +984,7 @@ potential (Industry)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (NoOfEmployees_1)
+potential (CompanySize_1)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -1004,7 +1004,7 @@ potential (Country_1)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (SessionSidejacking | Country_1 NoOfEmployees_1 OS_1 Industry_1)
+potential (SessionSidejacking | Country_1 CompanySize_1 OS_1 Industry_1)
 {
  data = ((((( 0.7 0.3 )
 ( 0.6 0.39999998 )
@@ -1296,7 +1296,7 @@ potential (SessionSidejacking | Country_1 NoOfEmployees_1 OS_1 Industry_1)
 ( 0.67 0.32999998 )))));
 }
 
-potential (NoOfEmployees_2)
+potential (CompanySize_2)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -1316,7 +1316,7 @@ potential (Country_2)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (CrossSiteTracing | Country_2 NoOfEmployees_2 OS_2 Industry_2)
+potential (CrossSiteTracing | Country_2 CompanySize_2 OS_2 Industry_2)
 {
  data = ((((( 0.7 0.3 )
 ( 0.7 0.3 )
@@ -1608,7 +1608,7 @@ potential (CrossSiteTracing | Country_2 NoOfEmployees_2 OS_2 Industry_2)
 ( 0.7 0.3 )))));
 }
 
-potential (NoOfEmployees_3)
+potential (CompanySize_3)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -1628,7 +1628,7 @@ potential (Country_3)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (UnauthorizedUseOfDeviceResources | Country_3 NoOfEmployees_3 OS_3 Industry_3)
+potential (UnauthorizedUseOfDeviceResources | Country_3 CompanySize_3 OS_3 Industry_3)
 {
  data = ((((( 0.75 0.25 )
 ( 0.8 0.19999999 )
@@ -1920,7 +1920,7 @@ potential (UnauthorizedUseOfDeviceResources | Country_3 NoOfEmployees_3 OS_3 Ind
 ( 0.63 0.37 )))));
 }
 
-potential (NoOfEmployees_4)
+potential (CompanySize_4)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -1940,7 +1940,7 @@ potential (Country_4)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (ForcefulBrowsing | Country_4 NoOfEmployees_4 OS_4 Industry_4)
+potential (ForcefulBrowsing | Country_4 CompanySize_4 OS_4 Industry_4)
 {
  data = ((((( 0.7 0.3 )
 ( 0.95 0.050000012 )
@@ -2232,7 +2232,7 @@ potential (ForcefulBrowsing | Country_4 NoOfEmployees_4 OS_4 Industry_4)
 ( 0.35 0.65 )))));
 }
 
-potential (CreateMaliciousContent | OS_5 Industry_4_1_1 NoOfEmployees_4_1_1 Country_4_1_1)
+potential (CreateMaliciousContent | OS_5 Industry_4_1_1 CompanySize_4_1_1 Country_4_1_1)
 {
  data = ((((( 0.3 0.7 )
 ( 0.6 0.39999998 )
@@ -2529,7 +2529,7 @@ potential (Country_4_1_1)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_4_1_1)
+potential (CompanySize_4_1_1)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -2544,7 +2544,7 @@ potential (Industry_4_1_1)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (XMLRoutingDetourAttacks | Industry_7 OS_7 NoOfEmployees_7 Country_7)
+potential (XMLRoutingDetourAttacks | Industry_7 OS_7 CompanySize_7 Country_7)
 {
  data = ((((( 0.1 0.9 )
 ( 0.25 0.75 )
@@ -2836,7 +2836,7 @@ potential (XMLRoutingDetourAttacks | Industry_7 OS_7 NoOfEmployees_7 Country_7)
 ( 0.05 0.95 )))));
 }
 
-potential (ContentSpoofingViaApplicationAPIManipulation | Industry_8 OS_8 NoOfEmployees_8 Country_8)
+potential (ContentSpoofingViaApplicationAPIManipulation | Industry_8 OS_8 CompanySize_8 Country_8)
 {
  data = ((((( 0.08 0.92 )
 ( 0.15 0.85 )
@@ -3128,7 +3128,7 @@ potential (ContentSpoofingViaApplicationAPIManipulation | Industry_8 OS_8 NoOfEm
 ( 0.05 0.95 )))));
 }
 
-potential (ManipulatingHiddenFields | Industry_6 OS_6 NoOfEmployees_6 Country_6)
+potential (ManipulatingHiddenFields | Industry_6 OS_6 CompanySize_6 Country_6)
 {
  data = ((((( 0.05 0.95 )
 ( 0.1 0.9 )
@@ -3425,7 +3425,7 @@ potential (Country_6)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_6)
+potential (CompanySize_6)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -3445,7 +3445,7 @@ potential (Country_7)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_7)
+potential (CompanySize_7)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -3465,7 +3465,7 @@ potential (Country_8)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_8)
+potential (CompanySize_8)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -3480,7 +3480,7 @@ potential (Industry_8)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (ForceUseOfCorruptedFiles | NoOfEmployees_9 Country_9 Industry_9 OS_9)
+potential (ForceUseOfCorruptedFiles | CompanySize_9 Country_9 Industry_9 OS_9)
 {
  data = ((((( 0.1 0.9 )
 ( 0.1 0.90000004 )
@@ -3777,7 +3777,7 @@ potential (Country_9)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_9)
+potential (CompanySize_9)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -3792,7 +3792,7 @@ potential (Industry_9)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (RestfulPrivilegeElevation | OS_10 Country_10 Industry_10 NoOfEmployees_10)
+potential (RestfulPrivilegeElevation | OS_10 Country_10 Industry_10 CompanySize_10)
 {
  data = ((((( 0.4 0.6 )
 ( 0.35 0.65 )
@@ -4089,7 +4089,7 @@ potential (Country_10)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_10)
+potential (CompanySize_10)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -4109,7 +4109,7 @@ potential (Country_11)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_11)
+potential (CompanySize_11)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -4124,7 +4124,7 @@ potential (Industry_11)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (ModifySharedFile | NoOfEmployees_11 OS_11 Industry_11 Country_11)
+potential (ModifySharedFile | CompanySize_11 OS_11 Industry_11 Country_11)
 {
  data = ((((( 0.56 0.44 )
 ( 0.34 0.65999997 )
@@ -4416,7 +4416,7 @@ potential (ModifySharedFile | NoOfEmployees_11 OS_11 Industry_11 Country_11)
 ( 0.67 0.32999998 )))));
 }
 
-potential (AddMaliciousFileToSharedWebroot | NoOfEmployees_12 OS_12 Industry_12 Country_12)
+potential (AddMaliciousFileToSharedWebroot | CompanySize_12 OS_12 Industry_12 Country_12)
 {
  data = ((((( 0.5 0.5 )
 ( 0.6 0.39999998 )
@@ -4713,7 +4713,7 @@ potential (Country_12)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_12)
+potential (CompanySize_12)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -4728,7 +4728,7 @@ potential (Industry_12)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (CrossZoneScripting | NoOfEmployees_13 OS_13 Industry_13 Country_13)
+potential (CrossZoneScripting | CompanySize_13 OS_13 Industry_13 Country_13)
 {
  data = ((((( 0.3 0.7 )
 ( 0.4 0.6 )
@@ -5025,7 +5025,7 @@ potential (Country_13)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_13)
+potential (CompanySize_13)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -5040,7 +5040,7 @@ potential (Industry_13)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (HijackingAPrivilegedProcess | NoOfEmployees_14 OS_14 Industry_14 Country_14)
+potential (HijackingAPrivilegedProcess | CompanySize_14 OS_14 Industry_14 Country_14)
 {
  data = ((((( 1.0 0.0 )
 ( 0.2 0.8 )
@@ -5337,7 +5337,7 @@ potential (Country_14)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_14)
+potential (CompanySize_14)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -5357,7 +5357,7 @@ potential (OS_15)
  data = ( 0.6 0.1 0.2 0.1 );
 }
 
-potential (Embedding_NULL_Bytes | OS_15 Industry_15 NoOfEmployees_15 Country_15)
+potential (Embedding_NULL_Bytes | OS_15 Industry_15 CompanySize_15 Country_15)
 {
  data = ((((( 0.55 0.45 )
 ( 0.67 0.32999998 )
@@ -5654,7 +5654,7 @@ potential (Country_15)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_15)
+potential (CompanySize_15)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -5664,7 +5664,7 @@ potential (Industry_15)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (URL_Encoding | OS_16 Industry_16 NoOfEmployees_16 Country_16)
+potential (URL_Encoding | OS_16 Industry_16 CompanySize_16 Country_16)
 {
  data = ((((( 0.55 0.45 )
 ( 0.5 0.5 )
@@ -5966,7 +5966,7 @@ potential (Country_16)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_16)
+potential (CompanySize_16)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -5981,7 +5981,7 @@ potential (Country_17)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_17)
+potential (CompanySize_17)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -5991,7 +5991,7 @@ potential (Industry_17)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (Forced_Integer_Overflow | Industry_17 Country_17 NoOfEmployees_17 OS_17)
+potential (Forced_Integer_Overflow | Industry_17 Country_17 CompanySize_17 OS_17)
 {
  data = ((((( 0.743274 0.25672603 )
 ( 0.3423 0.6577 )
@@ -6293,7 +6293,7 @@ potential (Country_18)
  data = ( 0.05 0.7 0.05 0.04 0.08 0.08 );
 }
 
-potential (NoOfEmployees_18)
+potential (CompanySize_18)
 {
  data = ( 0.15 0.25 0.35 0.25 );
 }
@@ -6303,7 +6303,7 @@ potential (Industry_18)
  data = ( 0.33333334 0.33333334 0.33333334 );
 }
 
-potential (Absolute_Path_Traversal | Industry_18 Country_18 NoOfEmployees_18 OS_18)
+potential (Absolute_Path_Traversal | Industry_18 Country_18 CompanySize_18 OS_18)
 {
  data = ((((( 0.7433 0.25669998 )
 ( 0.4234 0.57659996 )
