@@ -1,1 +1,92 @@
-<p>calculator works!</p>
+<div class="calculator">
+    <h1><b>Vulnerability score calculator</b></h1>
+    <mat-divider></mat-divider>
+    <h2>Base metrics</h2>
+    <mat-grid-list cols="2" rowHeight="4:1">
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h2>Access vector</h2>
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                    <mat-button-toggle value="bold">Local</mat-button-toggle>
+                    <mat-button-toggle value="italic">Remote</mat-button-toggle>
+                  </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Access complexity</h2>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="bold">High</mat-button-toggle>
+                <mat-button-toggle value="italic">Low</mat-button-toggle>
+              </mat-button-toggle-group>
+        </mat-grid-list></mat-grid-tile>
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Authentication</h2>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="bold">Required</mat-button-toggle>
+                <mat-button-toggle value="italic">Not required</mat-button-toggle>
+              </mat-button-toggle-group>
+        </mat-grid-list></mat-grid-tile>
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Confidentiality impact</h2>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="bold">None</mat-button-toggle>
+                <mat-button-toggle value="italic">Partial</mat-button-toggle>
+                <mat-button-toggle value="italic">Complete</mat-button-toggle>
+              </mat-button-toggle-group>
+        </mat-grid-list></mat-grid-tile>
+      </mat-grid-list>
+      <mat-divider></mat-divider>
+      <h2>Temporal metrics</h2>
+      <mat-grid-list cols="2" rowHeight="4:1">
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h2>Exploitability</h2>
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                    <mat-button-toggle value="bold">Unproven</mat-button-toggle>
+                    <mat-button-toggle value="italic">Proof of concept</mat-button-toggle>
+                    <mat-button-toggle value="italic">Functional</mat-button-toggle>
+                    <mat-button-toggle value="italic">High</mat-button-toggle>
+                  </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Remediation level</h2>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="bold">Official fix</mat-button-toggle>
+                <mat-button-toggle value="italic">Temporary fix</mat-button-toggle>
+                <mat-button-toggle value="italic">Workaround</mat-button-toggle>
+                <mat-button-toggle value="italic">Unavailable</mat-button-toggle>
+              </mat-button-toggle-group>
+        </mat-grid-list></mat-grid-tile>
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Report confidence</h2>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="bold">Unconfirmed</mat-button-toggle>
+                <mat-button-toggle value="italic">Uncorroborated</mat-button-toggle>
+                <mat-button-toggle value="italic">Confirmed</mat-button-toggle>
+              </mat-button-toggle-group>
+        </mat-grid-list></mat-grid-tile>
+      </mat-grid-list>
+      <mat-divider></mat-divider>
+      <h2>Environmental metrics</h2>
+      <mat-grid-list cols="2" rowHeight="4:1">
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Collateral damage potential</h2>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="bold">None</mat-button-toggle>
+                <mat-button-toggle value="italic">Low</mat-button-toggle>
+                <mat-button-toggle value="italic">Meidum</mat-button-toggle>
+                <mat-button-toggle value="italic">High</mat-button-toggle>
+              </mat-button-toggle-group>
+        </mat-grid-list></mat-grid-tile>
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Target distribution</h2>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="bold">None</mat-button-toggle>
+                <mat-button-toggle value="italic">Low</mat-button-toggle>
+                <mat-button-toggle value="italic">Meidum</mat-button-toggle>
+                <mat-button-toggle value="italic">High</mat-button-toggle>
+              </mat-button-toggle-group>
+        </mat-grid-list></mat-grid-tile>
+      </mat-grid-list>
+</div>
