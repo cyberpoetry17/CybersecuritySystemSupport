@@ -9,6 +9,10 @@ import { RegisterAttackComponent } from './register-attack/register-attack.compo
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -24,7 +28,10 @@ import { MatDividerModule } from '@angular/material/divider';
     BrowserAnimationsModule,
     MatButtonToggleModule,
     MatGridListModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule,
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
