@@ -1,0 +1,55 @@
+.container-wrapper{
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    margin: 1em auto; 
+    padding:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.08);
+}
+
+.card-col{
+    width:100%;
+    height:100%;
+}
+
+mat-divider {
+    width: 100%;
+    background-color: lightgray;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.info-subheader{
+    margin-right: 20px !important;
+}
+
+.reporter-info-field{
+    margin-right: 10px !important;
+}
+
+.mat-button-toggle {
+    background-color: #05386B;
+    color: white;
+}
+.mat-button-toggle-checked {
+    background-color: #5CDB95;
+
+}
+
+mat-divider {
+    width: 100%;
+    background-color: lightgray;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+.button-row{
+    height:4rem;
+}
+
+.button-row button {
+    height:100%;
+    width:50%;
+    margin: 0px auto;
+}

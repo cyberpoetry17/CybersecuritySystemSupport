@@ -1,5 +1,145 @@
-<div>
-    <h1>Known routes: </h1>
-    <h3>/calculator</h3>
-    <h3>/</h3>
+<div class="container-wrapper">
+    <h1><b>Attack type prediction</b></h1>
+
+    <!--Basic info about attack-->
+    <mat-divider></mat-divider>
+    <h2>Basic info</h2>
+    <mat-grid-list cols="2" rowHeight="3:1">
+        <mat-grid-tile>
+            <h5 class="info-subheader">Reporter info</h5>
+            <mat-form-field class="reporter-info-field">
+                <mat-label>First name</mat-label>
+                <input 
+                [(ngModel)]="attack.reporterFirstName"
+                matInput placeholder="First name..."
+                />
+            </mat-form-field>
+
+            <mat-form-field class="reporter-info-field">
+                <mat-label>Last name</mat-label>
+                <input 
+                [(ngModel)]="attack.reporterLastName"
+                matInput 
+                placeholder="Last name..."/>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <h5 class="info-subheader">Occurence date</h5>
+            <input 
+            [(ngModel)]="attack.occurenceDate"
+            matInput 
+            [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!--Symptoms-->
+    <mat-divider></mat-divider>
+    <h2>Symptoms</h2>
+    <mat-grid-list cols="3" rowHeight="2.5:1" [gutterSize]="'0px'">
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h4>Stealthy</h4>
+                <mat-button-toggle-group
+                [(ngModel)]="attack.stealthy">
+                <mat-button-toggle value=false>No</mat-button-toggle>
+                <mat-button-toggle value=true>Yes</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h4>Duration</h4>
+                <mat-button-toggle-group
+                [(ngModel)]="attack.duration">
+                    <mat-button-toggle *ngFor="let dur of durations" [value]="dur.value">
+                        {{dur.value}}
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h4>Origin known</h4>
+                <mat-button-toggle-group
+                [(ngModel)]="attack.originKnown">
+                <mat-button-toggle value=false>No</mat-button-toggle>
+                <mat-button-toggle value=true>Yes</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h4>Automated</h4>
+                <mat-button-toggle-group
+                [(ngModel)]="attack.automated">
+                <mat-button-toggle value=false>No</mat-button-toggle>
+                <mat-button-toggle value=true>Yes</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h4>Aggresive</h4>
+                <mat-button-toggle-group
+                [(ngModel)]="attack.aggresive">
+                <mat-button-toggle value=false>No</mat-button-toggle>
+                <mat-button-toggle value=true>Yes</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h4>Advanced</h4>
+                <mat-button-toggle-group
+                [(ngModel)]="attack.advanced">
+                <mat-button-toggle value=false>No</mat-button-toggle>
+                <mat-button-toggle value=true>Yes</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h4>Targeted</h4>
+                <mat-button-toggle-group
+                [(ngModel)]="attack.targeted">
+                <mat-button-toggle value=false>No</mat-button-toggle>
+                <mat-button-toggle value=true>Yes</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+
+
+
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h4>Persistent</h4>
+                <mat-button-toggle-group
+                [(ngModel)]="attack.persistent">
+                <mat-button-toggle value=false>No</mat-button-toggle>
+                <mat-button-toggle value=true>Yes</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-grid-list>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <div class="button-row">
+        <button 
+        [disabled]="!isFormValid()"
+        (click)="predict()"
+        mat-raised-button color="primary">Predict</button>
+    </div>
+
+    <!--Results-->
+    <mat-divider></mat-divider>
+
+    <!--TODO: Show results-->
 </div>

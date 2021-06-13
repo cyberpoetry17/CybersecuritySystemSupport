@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Attack } from '../model/attack.model';
+import { Duration } from '../model/duration.enum';
+import { AttackService } from '../service/attack.service';
 
 @Component({
   selector: 'app-register-attack',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterAttackComponent implements OnInit {
 
-  constructor() { }
+  attack = new Attack();
+  durations = this.enumSelector(Duration);
+
+  constructor(private attackService: AttackService) { }
 
   ngOnInit(): void {
   }
+
+  predict() {
+    this.attackService.predictAttackType(this.attack).subscribe((data) => {
+      console.log(data);
+    })
+  }
+
+  enumSelector(definition:any) {
+    return Object.keys(definition)
+      .map(key => ({ value: definition[key], title: key }));
+  }
+
+
+  isFormValid(){
+      return this.attack.isValid();
+  }
+
+
 
 }
