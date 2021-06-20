@@ -2,7 +2,6 @@ package tim10.backend.cbbr;
 
 import es.ucm.fdi.gaia.jcolibri.cbrcore.Attribute;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
-import tim10.backend.attack.DurationEnum;
 
 public class CBRModel implements CaseComponent {
 	private String attackName;
