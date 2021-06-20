@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Attack } from '../model/attack.model';
+import { BayesResult } from '../model/bayesResult.model';
 import { Duration } from '../model/duration.enum';
 import { AttackService } from '../service/attack.service';
 
@@ -12,6 +13,8 @@ export class RegisterAttackComponent implements OnInit {
 
   attack = new Attack();
   durations = this.enumSelector(Duration);
+  bayesResults : BayesResult[] = [];
+  showResults = false;
 
   constructor(private attackService: AttackService) { }
 
@@ -19,8 +22,10 @@ export class RegisterAttackComponent implements OnInit {
   }
 
   predict() {
+    this.showResults = false;
     this.attackService.predictAttackType(this.attack).subscribe((data) => {
-      console.log(data);
+      this.bayesResults = data;
+      this.showResults = true;
     })
   }
 

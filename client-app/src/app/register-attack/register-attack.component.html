@@ -141,5 +141,15 @@
     <!--Results-->
     <mat-divider></mat-divider>
 
-    <!--TODO: Show results-->
+    
+
+    <mat-list>
+        <mat-list-item *ngFor="let result of bayesResults">
+            <div class="flex-container">
+                <div>{{result.attack}}</div>
+                <div style="margin-left:auto;">{{result.percentage}}</div>
+            </div>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-list>
 </div>

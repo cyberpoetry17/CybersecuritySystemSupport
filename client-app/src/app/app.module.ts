@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatListModule} from '@angular/material/list';
+
 
 
 
@@ -39,7 +41,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatCardModule,
     MatInputModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatListModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

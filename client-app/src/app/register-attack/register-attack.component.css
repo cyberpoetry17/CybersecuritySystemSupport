@@ -53,3 +53,9 @@ mat-divider {
     width:50%;
     margin: 0px auto;
 }
+
+.flex-container{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+}
