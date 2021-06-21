@@ -1,17 +1,18 @@
 package tim10.backend.bayes;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
+
 import unbbayes.io.NetIO;
 import unbbayes.io.exception.LoadException;
-import unbbayes.prs.Node;
 import unbbayes.prs.bn.JunctionTreeAlgorithm;
 import unbbayes.prs.bn.ProbabilisticNetwork;
 import unbbayes.prs.bn.ProbabilisticNode;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
-
+import unbbayes.prs.Node;
 @Component
 public class BayesProbabilityCalculator {
 

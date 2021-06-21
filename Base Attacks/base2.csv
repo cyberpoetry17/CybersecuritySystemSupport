@@ -6,7 +6,7 @@
 237,"Escaping a Sandbox by Calling Code in Another Language",Medium,High,"none",""
 87,"Forceful Browsing",Medium,Medium,"resouce improperly protected",""
 202,"Create Malicious Client",High,High,"has abusable behavior patterns",""
-200,"Removal of filters: Input filters, output filters, data masking",Low,Medium,"target must have a filter",""
+200,"Removal of filters: Input filters; output filters; data masking",Low,Medium,"target must have a filter",""
 162,"Manipulating Hidden Fields",High,Medium,"target contains non-validating hidden fields",""
 219,"XML Routing Detour Attacks",Low,High,"target has multiple stages of XML content",""
 385,"Transaction or Event Tampering via Application API Manipulation",Low,Low,"target utilizes application framework APIs",""

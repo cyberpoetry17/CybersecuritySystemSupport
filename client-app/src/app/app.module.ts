@@ -17,6 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
+import { CbrComponent } from './cbr/cbr.component';
 
 
 
@@ -27,6 +28,7 @@ import {MatListModule} from '@angular/material/list';
     AppComponent,
     CalculatorComponent,
     RegisterAttackComponent,
+    CbrComponent,
   ],
   imports: [
     BrowserModule,

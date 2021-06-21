@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CalculatorComponent } from './calculator/calculator.component';
+import { CbrComponent } from './cbr/cbr.component';
 import { RegisterAttackComponent } from './register-attack/register-attack.component';
 
 const routes: Routes = [
@@ -10,6 +11,9 @@ const routes: Routes = [
   },
   {
     path: '', component: RegisterAttackComponent
+  },
+  {
+    path:'cbr',component: CbrComponent
   }
 ];
 
