@@ -1,7 +1,14 @@
 package tim10.backend.cbbr;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
@@ -19,6 +26,7 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.selection.SelectCases;
+import es.ucm.fdi.gaia.jcolibri.util.FileIO;
 
 @Service
 public class CBRApplication implements StandardCBRApplication{
@@ -75,6 +83,23 @@ public class CBRApplication implements StandardCBRApplication{
 			model.setTypicalSeverity(dto.getTypicalSeverity());
 			model.setPrerequisites(dto.getPrerequisites());
 			query.setDescription(model);
+			try {
+			File read = new File("src/data/base2.csv");
+			BufferedReader r = new BufferedReader(new FileReader(read));
+			String st;
+			StringBuilder sb = new StringBuilder();
+			String newone="";
+ 			while((st=r.readLine()) != null) {
+				newone = (sb).append(st).append("\n").toString();
+			}
+			FileWriter file = new FileWriter("src/data/base2.csv");
+			BufferedWriter writter = new BufferedWriter(file);
+			
+			writter.append(newone+"!"+","+"\""+dto.getAttackName()+"\""+","+dto.getLikelihoodOfAttack()+","+dto.getTypicalSeverity()+","+"\""+dto.getPrerequisites()+"\""+","+"\"\"");
+			writter.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 			this.cycle(query);
 			this.postCycle();
 			

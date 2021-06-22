@@ -12,17 +12,17 @@
         <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
             <h2>Likelihood of attack</h2>
             <mat-button-toggle-group [(ngModel)]="cbrModel.likelihoodOfAttack">
-                <mat-button-toggle value=0.25>Low</mat-button-toggle>
-                <mat-button-toggle value=0.75>Medium</mat-button-toggle>
-                <mat-button-toggle value=1>High</mat-button-toggle>
+                <mat-button-toggle value=Low>Low</mat-button-toggle>
+                <mat-button-toggle value=Medium>Medium</mat-button-toggle>
+                <mat-button-toggle value=High>High</mat-button-toggle>
               </mat-button-toggle-group>
         </mat-grid-list></mat-grid-tile>
         <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
             <h2>Typical severity</h2>
             <mat-button-toggle-group [(ngModel)]="cbrModel.typicalSeverity">
-                <mat-button-toggle value=0.25>Low</mat-button-toggle>
-                <mat-button-toggle value=0.75>Medium</mat-button-toggle>
-                <mat-button-toggle value=1>High</mat-button-toggle>
+                <mat-button-toggle value=Low>Low</mat-button-toggle>
+                <mat-button-toggle value=Medium>Medium</mat-button-toggle>
+                <mat-button-toggle value=High>High</mat-button-toggle>
               </mat-button-toggle-group>
         </mat-grid-list></mat-grid-tile>
         <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
@@ -30,7 +30,7 @@
             <input matInputPre placeholder="Ex. web" [(ngModel)]="cbrModel.prerequisites">
         </mat-grid-list></mat-grid-tile>
       </mat-grid-list>
-      <button mat-raised-button (click)="submit()" class="submit-button">Submit</button>
+      <button mat-raised-button (click)="submit()" [disabled]="!validate()" class="submit-button">Submit</button>
       <mat-divider></mat-divider>
       <div class="result">
 
@@ -39,6 +39,7 @@
             <tr>
                 <th>Attack</th>
                 <th>Result</th>
+                <th></th>
             </tr>
             <tbody>
                 <tr *ngFor="let c of score">
@@ -46,6 +47,7 @@
                         {{c.description}}
                     </td>
                     <td>{{c.resultValue}}</td>
+                    <td><button mat-raised-button class="submit-button">Mitigations</button></td>
                 </tr>
             </tbody>
         </table>

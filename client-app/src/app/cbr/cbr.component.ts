@@ -24,4 +24,9 @@ export class CbrComponent implements OnInit {
       console.log(err.error);
     })
   }
+
+  validate(): boolean {
+    return this.cbrModel.attackName != null && this.cbrModel.likelihoodOfAttack != null && this.cbrModel.typicalSeverity != null && this.cbrModel.prerequisites != null
+  }
+
 }
