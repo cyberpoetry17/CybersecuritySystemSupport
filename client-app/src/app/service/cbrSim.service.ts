@@ -14,4 +14,9 @@ import { VulnerabilityMetrics } from "../model/vulnerability-metrics.model";
     calculateSimilarity(cbrModel: cbrModel): Observable<any> {
       return this._http.post<any>("http://localhost:8080/cbr/forcase/", cbrModel)
     }
+
+    getMitigations(desc: string): Observable<any>{
+      return this._http.get<any>("http://localhost:8080/prolog/getmitigations/"+desc)
+    }
+
   }

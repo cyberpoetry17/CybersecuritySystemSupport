@@ -68,7 +68,7 @@ public class CBRApplication implements StandardCBRApplication{
 		System.out.println("Retrieved cases:");
 		for (RetrievalResult nse : eval) {
 			System.out.println(nse.get_case().getDescription() + " -> " + nse.getEval());
-			frontList.add(new RetrievalResultDTO(nse.get_case().getDescription().toString(),nse.getEval()));
+			frontList.add(new RetrievalResultDTO(nse.get_case().getDescription().toString().substring(10).replace("]", ""),nse.getEval()));
 		}
 	}
 	

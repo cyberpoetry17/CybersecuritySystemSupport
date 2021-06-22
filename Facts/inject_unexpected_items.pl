@@ -17,6 +17,7 @@ owasp_top_ten_2007_category_a2_injection_flaws, 1).
 
 % Format string injection
 attack(format_string_injection).
+mitigation(format_string_injection,['limit_usage_of_formatting_string_functions','strong_input_validation']).
 attributes(format_string_injection, [135, 'high', 'high']).
 weakness(format_string_injection,
 use_of_externally_controlled_format_string, 1).
@@ -35,6 +36,7 @@ attributes(injection, [138, 'null', 'very_high']).
 
 % HTTP Parameter Pollution (HPP).
 attack(http_parameter_pollution_hpp).
+mitigation(http_parameter_pollution,['use_strict_regular_expressions_in_url_rewriting','attention_on_multiple_occurences_of_parameter_in_a_query_string']).
 attributes(http_parameter_pollution_hpp, [460, 'null', 'medium']).
 weakness(http_parameter_pollution_hpp, 
 improper_neutralization_of_argument_delimiters_in_a_command, 1).
@@ -51,11 +53,13 @@ improper_neutralization_of_argument_delimiters_in_a_command, 1).
 
 % Cross-Site Flashing
 attack(cross_site_flashing).
+mitigation(cross_site_flashing,['only_allow_known_url_as_remote_flash_movies_in_flash_application']).
 attributes(cross_site_flashing, [178, 'medium', 'medium']).
 %No weaknesses --skip
 
 % Argument Injection
 attack(argument_injection).
+mitigation(argument_injection,['implement_audit_log_written_by_separate_host']).
 attributes(argument_injection, [6, 'high', 'high']).
 weakness(argument_injection, 
 improper_neutralization_of_special_elements_in_output_used_by_a_downstream_component, 1).
@@ -81,11 +85,13 @@ inclusion_of_functionality_from_untrusted_control_sphere, 1).
 
 % Inclusion of Code in Existing Process
 attack(inclusion_of_code_in_existing_process).
+mitigation(inclusion_of_code_in_existing_process,['use_allow_list_policy', 'restrict_software_location', 'monitor_processes_and_command_line_arguments']).
 attributes(inclusion_of_code_in_existing_process, [640, 'low', 'high']).
 %No weaknesses --skip
 
 % Root Jailbreak Detection Evasion via Hooking
 attack(root_jailbreak_detection_evasion_via_hooking).
+mitigation(root_jailbreak_detection_evasion_via_hooking,['ensure_correct_mobile_application_signin', 'inspect_the_applications_memory_for_suspicious_artifacts', 'inspect_application_stack_trace']).
 attributes(root_jailbreak_detection_evasion_via_hooking, [660, 'medium', 'very_high']).
 weakness(root_jailbreak_detection_evasion_via_hooking, 
 inclusion_of_functionality_from_untrusted_control_sphere, 1).
@@ -104,6 +110,7 @@ owasp_top_ten_2007_category_a2_injection_flaws, 1).
 
 % PHP Remote File Inclusion
 attack(php_remote_file_inclusion).
+mitigation(php_remote_file_inclusion,['input_validation', 'allow_only_whitelisted_files']).
 attributes(php_remote_file_inclusion, [193, 'high', 'high']).
 weakness(php_remote_file_inclusion,
 improper_control_of_filename_for_include_require_statement_in_php_program, 1).
@@ -119,11 +126,13 @@ attributes(webview_injection, [500, 'null', 'null']).
 
 % Cellular Data Injection
 attack(cellular_data_injection).
+mitigation(cellular_data_injection,['commercial_defensive_technology']).
 attributes(cellular_data_injection, [610, 'null', 'high']).
 % No weaknesses --skip
 
 % Embedding Scripts within Scripts
 attack(embedding_scripts_within_scripts).
+mitigation(embedding_scripts_within_scripts,['use_browser_technology_with_anti_scripting', 'input_validation', 'output_validation', 'session_tokens_for_specific_host']).
 attributes(embedding_scripts_within_scripts, [19, 'high', 'high']).
 weakness(embedding_scripts_within_scripts,
 improper_access_control, 1).
@@ -154,6 +163,7 @@ owasp_top_ten_2007_category_a2_injection_flaws, 1).
 
 % Generic Cross-Browser Cross-Domain Theft
 attack(generic_cross_browser_cross_domain_theft).
+mitigation(generic_cross_browser_cross_domain_theft,['perform_proper_html_encoding_and_escaping']).
 attributes(generic_cross_browser_cross_domain_theft, [468, 'null', 'medium']).
 weakness(generic_cross_browser_cross_domain_theft,
 improper_neutralization, 1).
@@ -166,6 +176,7 @@ inappropriate_encoding_for_output_context, 1).
 
 % DOM-Based XSS
 attack(dom_based_xss).
+mitigation(dom_based_xss,['use_browser_technology_with_anti_scripting', 'ensure_all_user_supplied_input_is_valid']).
 attributes(dom_based_xss, [588, 'high', 'very_high']).
 weakness(dom_based_xss,
 improper_neutralization_of_input_during_web_page_generation, 1).
@@ -176,6 +187,7 @@ improper_neutralization_of_script_in_attributes_in_a_web_page, 1).
 
 % Reflected XSS
 attack(reflected_xss).
+mitigation(reflected_xss,['use_browser_technology_with_anti_scripting', 'ensure_all_user_supplied_input_is_valid']).
 attributes(reflected_xss, [591, 'high', 'very_high']).
 weakness(reflected_xss,
 improper_neutralization_of_input_during_web_page_generation, 1).
@@ -204,12 +216,14 @@ improper_neutralization_of_special_elements_used_in_a_command, 1).
 
 % DTD Injection
 attack(dtd_injection).
+mitigation(dtd_injection,['disallow_inclusion_of_dtds', 'use_xml_parsing_tools_against_dtd_attacks']).
 attributes(dtd_injection, [228, 'null', 'medium']).
 weakness(dtd_injection,
 inclusion_of_functionality_from_untrusted_control_sphere, 1).
 
 %XPath Injection
 attack(xpath_injection).
+mitigation(xpath_injection,['strong_input_validation', 'use_of_parametrized_xpath_queries', 'use_of_custom_error_pages']).
 attributes(xpath_injection, 'high', 'high').
 weakness(xpath_injection,
 xml_injection, 1).
@@ -224,6 +238,7 @@ improper_neutralization, 1).
 
 %XQuery Injection
 attack(xquery_injection).
+mitigation(xquery_injection,['run_xml_parsing_and_query_with_minimal_privileges']).
 attributes(xquery_injection, [84, 'high', 'very_high']).
 weakness(xquery_injection,
 improper_neutralization_of_special_elements_in_output_used_by_a_downstream_component, 1).
@@ -299,6 +314,7 @@ improper_neutralization, 1).
 
 %OS Command Injection
 attack(os_command_injection).
+mitigation(os_command_injection,['filter_incoming_data_to_escape_or_remove_characters', 'run_applications_with_minimal_privilege']).
 attributes(os_command_injection, [88, 'high', 'high']).
 weakness(os_command_injection,
 improper_neutralization_of_special_elements_used_in_an_os_command, 1).
@@ -313,6 +329,7 @@ owasp_top_ten_2007_category_a2_injection_flaws, 1).
 
 %Install New Service
 attack(install_new_service).
+mitigation(install_new_service,['limit_privilege_of_new_accounts']).
 attributes(install_new_service, [550, 'null', 'null']).
 weakness(install_new_service,
 improper_access_control, 1).
@@ -327,6 +344,7 @@ insufficiently_protected_credentials, 1).
 
 %Install Rootkit
 attack(install_rootkit).
+mitigation(install_rootkit,['prevent_adversary_access_to_privileged_accounts']).
 attributes(install_rootkit, [552, 'medium', 'high']).
 weakness(install_rootkit,
 improper_access_control, 1).
@@ -346,6 +364,7 @@ improper_access_control, 1).
 
 %Run Software at Logon
 attack(run_software_at_logon).
+mitigation(run_software_at_logon,['restrict_write_access_to_logon_scripts']).
 attributes(run_software_at_logon, [564, 'null', 'null']).
 weakness(run_software_at_logon,
 improper_access_control, 1).
@@ -363,6 +382,7 @@ improper_verification_of_source_of_a_communication_channel, 1).
 
 %Object Injection
 attack(object_injection).
+mitigation(object_injection,['validate_objects_before_deserialization', 'keep_session_state_on_the_server']).
 attributes(object_injection, [586, 'medium', 'high']).
 weakness(object_injection,
 deserialization_of_untrusted_data, 1).

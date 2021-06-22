@@ -15,6 +15,7 @@ export class CbrComponent implements OnInit {
   }
   cbrModel = new cbrModel();
   score:any;
+  mitigation:any;
 
   submit(): void {
     this.cbrService.calculateSimilarity(this.cbrModel).subscribe(data => {
@@ -27,6 +28,14 @@ export class CbrComponent implements OnInit {
 
   validate(): boolean {
     return this.cbrModel.attackName != null && this.cbrModel.likelihoodOfAttack != null && this.cbrModel.typicalSeverity != null && this.cbrModel.prerequisites != null
+  }
+
+  getMitigations(desc: any): void {
+    console.log("starting ...")
+    this.cbrService.getMitigations(desc).subscribe(data=>{
+      this.mitigation = data;
+      alert("Mitigations: " + this.mitigation)
+    })
   }
 
 }

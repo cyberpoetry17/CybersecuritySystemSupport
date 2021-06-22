@@ -1,6 +1,7 @@
 %(attack, weakness, percentage)
 
 attack(buffer_overflow_via_environment_variables).
+mitigation(buffer_overflow_via_environment_variables,['do_not_expose_environment_variable_to_the_user','do_not_use_untrusted_data_in_your_environment_variables','use_a_language_or_compiler_that_performs_automatic_bounds_checking']).
 attributes(buffer_overflow_via_environment_variables , [10, 'high', 'high']).
 weakness(buffer_overflow_via_environment_variables, buffer_copy_without_checking_size_of_input, 1).
 weakness(buffer_overflow_via_environment_variables, authentication_bypass_by_assumed_immutable_data, 1).
@@ -90,6 +91,7 @@ weakness(buffer_overflow_via_parameter_expansion, integer_overflow_to_buffer_ove
 weakness(buffer_overflow_via_parameter_expansion, incorrect_comparison, 1).
 
 attack(string_format_overflow_in_syslog).
+mitigation(string_format_overflow_in_syslog,['the_code_should_be_reviewed_for_misuse_of_the_syslog_function_call']).
 attributes(string_format_overflow_in_syslog , [67, 'high', 'very_high']).
 weakness(string_format_overflow_in_syslog, buffer_copy_without_checking_size_of_input, 1).
 weakness(string_format_overflow_in_syslog, use_of_externally_controlled_format_string, 1).
@@ -136,10 +138,12 @@ weakness(pointer_manipulation, untrusted_pointer_dereference, 1).
 weakness(pointer_manipulation, use_of_out_of_range_pointer_offset, 1).
  
 attack(relative_path_traversal).
+mitigation(relative_path_traversal,['input_validation','accept_only_known_good','use_indirect_references_instead_of_file_names','use_permission_on_file_access']).
 attributes(relative_path_traversal , [139, 'high', 'high']).
 weakness(relative_path_traversal, relative_path_traversal, 1).
 
 attack(absolute_path_traversal).
+mitigation(absolute_path_traversal,['input_validation','perform_pen_testing_and_vulnerability_scans','use_indirect_references_instead_of_file_names','use_permission_on_file_access']).
 attributes(absolute_path_traversal , [597, 'null', 'null']).
 weakness(absolute_path_traversal, absolute_path_traversal, 1).
 
@@ -160,6 +164,7 @@ weakness(manipulating_web_input_to_file_system_calls, external_control_of_system
 weakness(manipulating_web_input_to_file_system_calls, owasp_top_ten_2007_category_a4_insecure_direct_object_reference, 1).
 
 attack(forced_integer_overflow).
+mitigation(forced_integer_overflow,['use_abstract_libraries_to_abstract_away_risky_apis','bound_checking_before_consuming_input_data']).
 attributes(forced_integer_overflow , [92, 'high', 'high']).
 weakness(forced_integer_overflow, integer_overflow_or_wraparound, 1).
 weakness(forced_integer_overflow, wrap_around_error, 1).
@@ -216,6 +221,7 @@ weakness(exploiting_multiple_input_interpretation_layers, incorrect_comparison, 
 weakness(exploiting_multiple_input_interpretation_layers, improper_neutralization, 1).
 
 attack(embedding_null_bytes).
+mitigation(embedding_null_bytes,['properly_handle_null_values']).
 attributes(embedding_null_bytes , [52, 'high', 'high']).
 weakness(embedding_null_bytes, improper_neutralization_of_null_byte_or_nul_character, 1).
 weakness(embedding_null_bytes, encoding_error, 1).

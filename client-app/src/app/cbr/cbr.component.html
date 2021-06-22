@@ -47,7 +47,7 @@
                         {{c.description}}
                     </td>
                     <td>{{c.resultValue}}</td>
-                    <td><button mat-raised-button class="submit-button">Mitigations</button></td>
+                    <td><button mat-raised-button class="submit-button" (click)="getMitigations(c.description)">Mitigations</button></td>
                 </tr>
             </tbody>
         </table>
