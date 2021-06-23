@@ -18,6 +18,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import { CbrComponent } from './cbr/cbr.component';
+import { RealRegisterAttackComponent } from './real-register-attack/real-register-attack.component';
 
 
 
@@ -29,6 +30,7 @@ import { CbrComponent } from './cbr/cbr.component';
     CalculatorComponent,
     RegisterAttackComponent,
     CbrComponent,
+    RealRegisterAttackComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,34 @@
+<div class="realregister">
+    <h1><b>Enter data to register new software attack</b></h1>
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="2" rowHeight="4:1">
+        <mat-grid-tile>
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <h2>Attack name</h2>
+                <input matInputAtt placeholder="Ex. inject" [(ngModel)]="cbrModel.attackName">
+            </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Likelihood of attack</h2>
+            <mat-button-toggle-group [(ngModel)]="cbrModel.likelihoodOfAttack">
+                <mat-button-toggle value=Low>Low</mat-button-toggle>
+                <mat-button-toggle value=Medium>Medium</mat-button-toggle>
+                <mat-button-toggle value=High>High</mat-button-toggle>
+              </mat-button-toggle-group>
+        </mat-grid-list></mat-grid-tile>
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Typical severity</h2>
+            <mat-button-toggle-group [(ngModel)]="cbrModel.typicalSeverity">
+                <mat-button-toggle value=Low>Low</mat-button-toggle>
+                <mat-button-toggle value=Medium>Medium</mat-button-toggle>
+                <mat-button-toggle value=High>High</mat-button-toggle>
+              </mat-button-toggle-group>
+        </mat-grid-list></mat-grid-tile>
+        <mat-grid-tile><mat-grid-list cols="2" rowHeight="5:1">
+            <h2>Prerequisites</h2>
+            <input matInputPre placeholder="Ex. web" [(ngModel)]="cbrModel.prerequisites">
+        </mat-grid-list></mat-grid-tile>
+      </mat-grid-list>
+      <button mat-raised-button (click)="submit()" [disabled]="!validate()" class="submit-button">Submit</button>
+      
+</div>

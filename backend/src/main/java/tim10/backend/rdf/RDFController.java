@@ -25,7 +25,7 @@ public class RDFController {
 	
 	
 	@PostMapping(value = "")
-	public ResponseEntity<?> calculateVulnerability(@RequestBody CBRDTO dto) {
+	public ResponseEntity<?> insertData(@RequestBody CBRDTO dto) {
 		if (rdfService.insert(dto)) {
 			cbrService.addNew(dto);
 			return new ResponseEntity<>(null, HttpStatus.OK);
@@ -34,7 +34,7 @@ public class RDFController {
 	}
 	
 	@DeleteMapping(value = "/{attackName}")
-	public ResponseEntity<?> calculateVulnerability(@PathVariable String attackName) {
+	public ResponseEntity<?> removeData(@PathVariable String attackName) {
 		if (rdfService.delete(attackName)) {
 			cbrService.remove(attackName);
 			return new ResponseEntity<>(null, HttpStatus.OK);
@@ -43,7 +43,7 @@ public class RDFController {
 	}
 	
 	@PutMapping(value = "/{oldName}")
-	public ResponseEntity<?> calculateVulnerability(@RequestBody CBRDTO dto, @PathVariable String oldName) {
+	public ResponseEntity<?> updateData(@RequestBody CBRDTO dto, @PathVariable String oldName) {
 		if (rdfService.update(dto, oldName)) {
 			cbrService.remove(oldName);
 			cbrService.addNew(dto);

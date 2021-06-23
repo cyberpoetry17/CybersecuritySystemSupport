@@ -74,3 +74,4 @@
 78,"Using Escaped Slashes in Alternate Encoding",Medium,High,"target accepts backslash characters as escape character"
 52,"Embedding NULL Bytes",Low,Low,"target does not properly handle null terminators",""
 !,"24234123123123",Low,Low,"prvi;drugi;treci",""
+!,"Inject new",High,High,"its a me malario",""

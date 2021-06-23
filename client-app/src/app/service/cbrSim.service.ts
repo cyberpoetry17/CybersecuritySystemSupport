@@ -19,4 +19,8 @@ import { VulnerabilityMetrics } from "../model/vulnerability-metrics.model";
       return this._http.get<any>("http://localhost:8080/prolog/getmitigations/"+desc)
     }
 
+    registerAttack(cbrModel: cbrModel): Observable<any>{
+      return this._http.post<any>("http://localhost:8080/api/rdf",cbrModel)
+    }
+
   }
