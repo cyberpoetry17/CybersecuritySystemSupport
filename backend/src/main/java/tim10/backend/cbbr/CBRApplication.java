@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import es.ucm.fdi.gaia.jcolibri.casebase.LinealCaseBase;
@@ -83,23 +84,7 @@ public class CBRApplication implements StandardCBRApplication{
 			model.setTypicalSeverity(dto.getTypicalSeverity());
 			model.setPrerequisites(dto.getPrerequisites());
 			query.setDescription(model);
-			try {
-			File read = new File("src/data/base2.csv");
-			BufferedReader r = new BufferedReader(new FileReader(read));
-			String st;
-			StringBuilder sb = new StringBuilder();
-			String newone="";
- 			while((st=r.readLine()) != null) {
-				newone = (sb).append(st).append("\n").toString();
-			}
-			FileWriter file = new FileWriter("src/data/base2.csv");
-			BufferedWriter writter = new BufferedWriter(file);
-			
-			writter.append(newone+"!"+","+"\""+dto.getAttackName()+"\""+","+dto.getLikelihoodOfAttack()+","+dto.getTypicalSeverity()+","+"\""+dto.getPrerequisites()+"\""+","+"\"\"");
-			writter.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
+			addNew(dto);
 			this.cycle(query);
 			this.postCycle();
 			
@@ -107,6 +92,53 @@ public class CBRApplication implements StandardCBRApplication{
 			e.printStackTrace();
 		}
 		return frontList;
+	}
+
+	public void addNew(CBRDTO dto) {
+		try {
+			File read = new File("src/data/base2.csv");
+			BufferedReader r = new BufferedReader(new FileReader(read));
+			String st;
+			StringBuilder sb = new StringBuilder();
+			String newone="";
+			
+			while((st=r.readLine()) != null) {
+				newone = (sb).append(st).append("\n").toString();
+			}
+			
+			FileWriter file = new FileWriter("src/data/base2.csv");
+			BufferedWriter writter = new BufferedWriter(file);
+		
+			writter.append(newone+"!"+","+"\""+dto.getAttackName()+"\""+","+dto.getLikelihoodOfAttack()+","+dto.getTypicalSeverity()+","+"\""+dto.getPrerequisites()+"\""+","+"\"\"");
+			writter.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void remove(String attackName) {
+		try {
+			File read = new File("src/data/base2.csv");
+			BufferedReader r = new BufferedReader(new FileReader(read));
+			String st;
+			StringBuilder sb = new StringBuilder();
+			String newone="";
+			
+			while((st=r.readLine()) != null) {
+				if (StringUtils.strip(st.split(",")[1], "\"").equals(attackName))
+					continue;				
+				newone = (sb).append(st).append("\n").toString();
+			}
+			
+			FileWriter file = new FileWriter("src/data/base2.csv");
+			BufferedWriter writter = new BufferedWriter(file);
+			
+			writter.append(newone);
+			writter.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override

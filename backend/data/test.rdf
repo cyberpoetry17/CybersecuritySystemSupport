@@ -1,0 +1,40 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:attacks="http://www.ftn.uns.ac.rs/iz/team10#">
+  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#Nameofattack">
+    <attacks:prerequisits>prvi;drugi;treci</attacks:prerequisits>
+    <attacks:name>Name of attack</attacks:name>
+    <attacks:likelihood>High</attacks:likelihood>
+    <attacks:severity>Medium</attacks:severity>
+  </attacks:Attack>
+  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#24234123123123">
+    <attacks:prerequisits>prvi;drugi;treci</attacks:prerequisits>
+    <attacks:name>24234123123123</attacks:name>
+    <attacks:likelihood>Low</attacks:likelihood>
+    <attacks:severity>Low</attacks:severity>
+  </attacks:Attack>
+  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#TestingStuff">
+    <attacks:severity>High</attacks:severity>
+    <attacks:prerequisits>testing;testin2</attacks:prerequisits>
+    <attacks:name>Name of attack</attacks:name>
+    <attacks:likelihood>High</attacks:likelihood>
+  </attacks:Attack>
+  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#Nameofattack2">
+    <attacks:severity>Medium</attacks:severity>
+    <attacks:likelihood>High</attacks:likelihood>
+    <attacks:name>Name of attack2</attacks:name>
+    <attacks:prerequisits>prvi;drugi;treci</attacks:prerequisits>
+  </attacks:Attack>
+  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#Nameofattack3">
+    <attacks:prerequisits>prvi;drugi;treci</attacks:prerequisits>
+    <attacks:name>Name of attack3</attacks:name>
+    <attacks:likelihood>High</attacks:likelihood>
+    <attacks:severity>Medium</attacks:severity>
+  </attacks:Attack>
+  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#TestingStuff2">
+    <attacks:severity>Medium</attacks:severity>
+    <attacks:likelihood>High</attacks:likelihood>
+    <attacks:name>Name of attack</attacks:name>
+    <attacks:prerequisits>testing;testin2</attacks:prerequisits>
+  </attacks:Attack>
+</rdf:RDF>

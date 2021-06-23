@@ -44,14 +44,47 @@ public class RDFService {
 		
 		UpdateAction.parseExecute(insertString, model);
 		
-		OutputStream outputStream;
+		
 		try {
-			outputStream = new FileOutputStream("data/test.rdf");
-			model.write(outputStream);
+			saveModel(model);
+			return true;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			return true;
+			return false;
 		}
+	}
+	
+	public boolean delete(String attackName) {
+		Model model = loadModel();
+		
+		String deleteString = ""
+				+ "PREFIX attacks: <http://www.ftn.uns.ac.rs/iz/team10#> "
+				+ "DELETE WHERE {"
+				+ "    ?attack attacks:name" + "\"" + attackName + "\"" + ";"
+				+ "        ?property ?value"
+				+ "}";
+		
+		UpdateAction.parseExecute(deleteString, model);
+		
+		try {
+			saveModel(model);
+			return true;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean update(CBRDTO dto, String oldName) {
+		Model model = loadModel();
+		
+		if (!existsByName(oldName)) {
+			return false;
+		}
+		
+		delete(oldName);
+		insert(dto);
+		
 		return true;
 	}
 	
@@ -63,7 +96,8 @@ public class RDFService {
 				+ "SELECT ?attack ?name "
 				+ "WHERE {"
 				+ "    ?attack a attacks:Attack; "
-				+ "        attacks:name ?name .}";
+				+ "        attacks:name ?name ."
+				+ "}";
 		
 		Query query = QueryFactory.create(queryString);
 		QueryExecution qexec = QueryExecutionFactory.create(query, model);
@@ -92,4 +126,9 @@ public class RDFService {
 			return null;
 		}
 	}	
+	
+	private void saveModel(Model model) throws FileNotFoundException {
+		OutputStream outputStream = new FileOutputStream("data/test.rdf");
+		model.write(outputStream);
+	}
 }

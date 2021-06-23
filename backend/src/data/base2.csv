@@ -73,4 +73,4 @@
 72,"URL Encoding",Low,Medium,"target accepts and decodes url input",""
 78,"Using Escaped Slashes in Alternate Encoding",Medium,High,"target accepts backslash characters as escape character"
 52,"Embedding NULL Bytes",Low,Low,"target does not properly handle null terminators",""
-!,"inject",High,Medium,"webb",""
+!,"24234123123123",Low,Low,"prvi;drugi;treci",""
