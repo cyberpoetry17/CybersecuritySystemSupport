@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 
 import unbbayes.io.NetIO;
 import unbbayes.io.exception.LoadException;
+import unbbayes.prs.Node;
 import unbbayes.prs.bn.JunctionTreeAlgorithm;
 import unbbayes.prs.bn.ProbabilisticNetwork;
 import unbbayes.prs.bn.ProbabilisticNode;
-import unbbayes.prs.Node;
 @Component
 public class BayesProbabilityCalculator {
 

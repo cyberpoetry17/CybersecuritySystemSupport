@@ -32,6 +32,12 @@
 		    <scope>system</scope>
 		    <systemPath>${basedir}/lib/jFuzzyLogic.jar</systemPath>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.jena/jena-arq -->
+		<dependency>
+    		<groupId>org.apache.jena</groupId>
+    		<artifactId>jena-arq</artifactId>
+    		<version>3.17.0</version>
+		</dependency>
 		<dependency>
 		    <artifactId>Unbbayes</artifactId>
 		    <groupId>net.sourceforge.unbbayes</groupId>
