@@ -21,15 +21,16 @@ mat-divider {
 
 .result {
     width: 100%;
-    height: 125px;
+    clear: both;
 }
 
 .cbr {
     align-items: center;
     text-align: center;
     width: 50%;
-    height: 95%;
+    display: block;
     margin: 1em auto; 
     padding:10px;
     box-shadow:0 0 15px 4px rgba(0,0,0,0.08);
+    overflow: hidden;
 }

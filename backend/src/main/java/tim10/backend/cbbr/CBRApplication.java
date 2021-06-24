@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Random;
 
@@ -45,10 +46,24 @@ public class CBRApplication implements StandardCBRApplication{
 		simConfig.setDescriptionSimFunction(new Average());
 		
 		simConfig.addMapping(new Attribute("attackName",CBRModel.class), new MaxString());
-		simConfig.addMapping(new Attribute("likelihoodOfAttack",CBRModel.class), new MaxString());
-		simConfig.addMapping(new Attribute("typicalSeverity",CBRModel.class), new MaxString());
 		simConfig.addMapping(new Attribute("prerequisites",CBRModel.class), new MaxString());
 		
+		TableSimilarity likelihoodOfAttackSimilarity = new TableSimilarity((Arrays.asList(new String[] {"Low","Medium","High"})));
+		likelihoodOfAttackSimilarity.setSimilarity("Low", "Low", 1);
+		likelihoodOfAttackSimilarity.setSimilarity("Low", "Medium", 0.4);
+		likelihoodOfAttackSimilarity.setSimilarity("Low", "High", 0.1);
+		likelihoodOfAttackSimilarity.setSimilarity("Medium", "Medium", 1);
+		likelihoodOfAttackSimilarity.setSimilarity("Medium", "High", 0.4);
+		likelihoodOfAttackSimilarity.setSimilarity("High", "High", 1);
+		TableSimilarity typicalSeveritySimilarity = new TableSimilarity((Arrays.asList(new String[] {"Low","Medium","High"})));
+		typicalSeveritySimilarity.setSimilarity("Low", "Low", 1);
+		typicalSeveritySimilarity.setSimilarity("Low", "Medium", 0.4);
+		typicalSeveritySimilarity.setSimilarity("Low", "High", 0.1);
+		typicalSeveritySimilarity.setSimilarity("Medium", "Medium", 1);
+		typicalSeveritySimilarity.setSimilarity("Medium", "High", 0.4);
+		typicalSeveritySimilarity.setSimilarity("High", "High", 1);
+		simConfig.addMapping(new Attribute("likelihoodOfAttack", CBRModel.class), likelihoodOfAttackSimilarity);
+		simConfig.addMapping(new Attribute("typicalSeverity", CBRModel.class), typicalSeveritySimilarity);
 		
 	}
 
