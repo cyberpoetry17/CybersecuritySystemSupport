@@ -5,7 +5,7 @@ Directions for starting this project
 1. Clone the project into a local directory and open Eclipse
 2. Import as maven project
 3. Check if all JAR files are present in project build path
-4. Add /backend/lib/jiprolog-4.1.6.1.jar to project Class path
+4. Add /backend/lib/jiprolog-4.1.6.1.jar and jpf-1.5.jar to project Class path
 5. Frontend application is built in Angular. Position yourself in client-app folder and open CMD
 6. Run npm install
 7. Start frontend with ng serve -o command(default port is 4200)
