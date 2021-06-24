@@ -11,3 +11,5 @@ Directions for starting this project
 7. Start frontend with ng serve -o command(default port is 4200)
 8. To start backend you right click on BackendApplication.java which you can find in package tim10.backend->Run as->Java application
 9. You are ready to start using functionalities, to move from page to page on frontend
+
+<img src="https://raw.githubusercontent.com/cyberpoetry17/CybersecuritySystemSupport/main/VAZNO.PNG?token=ANW7MNIDMULXETA2RXXPMRLA3YZIQ">
