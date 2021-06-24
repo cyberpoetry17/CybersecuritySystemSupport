@@ -1,0 +1,31 @@
+<div class="review">
+    <div *ngFor="let attack of attacks">
+        <div class="attack">
+            <div class="left">
+                <div class="element">
+                    <span class="label">Attack name: </span>
+                    <span>{{attack.attackName}}</span>
+                </div>
+                <div class="element">
+                    <span class="label">Likelihood of attack: </span>
+                    <span>{{attack.likelihoodOfAttack}}</span>
+                </div>
+                <div  class="element">
+                    <span class="label">Typical severity: </span>
+                    <span>{{attack.typicalSeverity}}</span>
+                </div>
+                <div class="element">
+                    <span class="label">Prerequisits: </span>
+                    <span *ngFor="let prerequisit of splitPrerequisits(attack)">
+                        <ul>
+                            <li class="prerequisit">{{prerequisit}}</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <div class="right">
+                <button class="button" mat-raised-button (click)="editAttack(attack)">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>

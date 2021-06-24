@@ -10,6 +10,14 @@ public class CBRDTO {
 		super();
 	}
 	
+	public CBRDTO(String attackName, String likelihoodOfAttack, String typicalSeverity, String prerequisites) {
+		super();
+		this.attackName = attackName;
+		this.likelihoodOfAttack = likelihoodOfAttack;
+		this.typicalSeverity = typicalSeverity;
+		this.prerequisites = prerequisites;
+	}
+
 	public String getAttackName() {
 		return attackName;
 	}

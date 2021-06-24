@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -24,6 +26,39 @@ import tim10.backend.cbbr.CBRDTO;
 
 @Service
 public class RDFService {
+	
+	public List<CBRDTO> getAll() {
+		Model model = loadModel();
+		List<CBRDTO> attacks = new ArrayList<CBRDTO>();
+		
+		String queryString = ""
+				+ "PREFIX attacks: <http://www.ftn.uns.ac.rs/iz/team10#> "
+				+ "SELECT * "
+				+ "WHERE {"
+				+ "    ?attack a attacks:Attack; "
+				+ "        attacks:name ?name; "
+				+ "        attacks:severity ?severity; "
+				+ "        attacks:prerequisits ?prerequisits; "
+				+ "        attacks:likelihood ?likelihood ."
+				+ "}";
+		
+		Query query = QueryFactory.create(queryString);
+		QueryExecution qexec = QueryExecutionFactory.create(query, model);
+		ResultSet results = qexec.execSelect();
+		
+		while (results.hasNext()) {
+			QuerySolution solution = results.nextSolution() ;
+			attacks.add(new CBRDTO(
+					solution.getLiteral("name").toString(),
+					solution.getLiteral("likelihood").toString(),
+					solution.getLiteral("severity").toString(),
+					solution.getLiteral("prerequisits").toString()
+					));
+		}
+		
+		
+		return attacks;
+	}
 
 	public boolean insert(CBRDTO dto) {
 		Model model = loadModel();
@@ -82,6 +117,12 @@ public class RDFService {
 			return false;
 		}
 		
+
+		if (existsByName(oldName) && !oldName.equals(dto.getAttackName())) {
+			if (existsByName(dto.getAttackName()))
+				return false;
+		}
+		
 		delete(oldName);
 		insert(dto);
 		
@@ -117,7 +158,7 @@ public class RDFService {
 	private Model loadModel() {
 		Model model = ModelFactory.createDefaultModel();
 		try {
-			InputStream is = new FileInputStream("data/test.rdf");
+			InputStream is = new FileInputStream("data/attacks.rdf");
 			RDFDataMgr.read(model, is, Lang.RDFXML);
 			is.close();
 			return model;
@@ -128,7 +169,7 @@ public class RDFService {
 	}	
 	
 	private void saveModel(Model model) throws FileNotFoundException {
-		OutputStream outputStream = new FileOutputStream("data/test.rdf");
+		OutputStream outputStream = new FileOutputStream("data/attacks.rdf");
 		model.write(outputStream);
 	}
 }

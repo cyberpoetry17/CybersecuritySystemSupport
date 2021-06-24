@@ -7,17 +7,11 @@
     <attacks:name>Name of attack</attacks:name>
     <attacks:prerequisits>prvi;drugi;treci</attacks:prerequisits>
   </attacks:Attack>
-  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#24234123123123">
-    <attacks:severity>Low</attacks:severity>
-    <attacks:likelihood>Low</attacks:likelihood>
-    <attacks:name>24234123123123</attacks:name>
-    <attacks:prerequisits>prvi;drugi;treci</attacks:prerequisits>
-  </attacks:Attack>
-  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#TestingStuff">
-    <attacks:likelihood>High</attacks:likelihood>
-    <attacks:name>Name of attack</attacks:name>
-    <attacks:prerequisits>testing;testin2</attacks:prerequisits>
+  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#DangerousAttack">
     <attacks:severity>High</attacks:severity>
+    <attacks:likelihood>Medium</attacks:likelihood>
+    <attacks:name>Dangerous Attack</attacks:name>
+    <attacks:prerequisits>test;second</attacks:prerequisits>
   </attacks:Attack>
   <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#Nameofattack2">
     <attacks:prerequisits>prvi;drugi;treci</attacks:prerequisits>
@@ -31,16 +25,22 @@
     <attacks:name>Name of attack3</attacks:name>
     <attacks:prerequisits>prvi;drugi;treci</attacks:prerequisits>
   </attacks:Attack>
-  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#TestingStuff2">
-    <attacks:prerequisits>testing;testin2</attacks:prerequisits>
-    <attacks:name>Name of attack</attacks:name>
-    <attacks:likelihood>High</attacks:likelihood>
-    <attacks:severity>Medium</attacks:severity>
+  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#Newattack">
+    <attacks:prerequisits>test;test</attacks:prerequisits>
+    <attacks:name>New attack</attacks:name>
+    <attacks:likelihood>Low</attacks:likelihood>
+    <attacks:severity>Low</attacks:severity>
+  </attacks:Attack>
+  <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#nameofattack2">
+    <attacks:severity>Low</attacks:severity>
+    <attacks:likelihood>Low</attacks:likelihood>
+    <attacks:name>name of attack 2</attacks:name>
+    <attacks:prerequisits>asd;test;hey</attacks:prerequisits>
   </attacks:Attack>
   <attacks:Attack rdf:about="http://www.ftn.uns.ac.rs/iz/team10#Injectnew">
-    <attacks:prerequisits>its a me malario</attacks:prerequisits>
+    <attacks:severity>Low</attacks:severity>
+    <attacks:likelihood>Low</attacks:likelihood>
     <attacks:name>Inject new</attacks:name>
-    <attacks:likelihood>High</attacks:likelihood>
-    <attacks:severity>High</attacks:severity>
+    <attacks:prerequisits>asd;test;hey</attacks:prerequisits>
   </attacks:Attack>
 </rdf:RDF>

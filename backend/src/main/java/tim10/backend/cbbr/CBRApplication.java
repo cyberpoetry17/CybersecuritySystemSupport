@@ -84,7 +84,6 @@ public class CBRApplication implements StandardCBRApplication{
 			model.setTypicalSeverity(dto.getTypicalSeverity());
 			model.setPrerequisites(dto.getPrerequisites());
 			query.setDescription(model);
-			addNew(dto);
 			this.cycle(query);
 			this.postCycle();
 			

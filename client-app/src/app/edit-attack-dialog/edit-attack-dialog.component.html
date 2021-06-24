@@ -1,0 +1,38 @@
+<div class="dialog">
+    <h1><b>Edit attack data</b></h1>
+    <mat-divider></mat-divider>
+    <div style="float: left;">
+        <div>
+            <div class="attribute">
+                <h2>Attack name</h2>
+            <input matInputAtt placeholder="Ex. inject" [(ngModel)]="attack.attackName">
+            </div>
+            <div class="attribute">
+                <h2>Typical severity</h2>
+                <mat-button-toggle-group [(ngModel)]="attack.typicalSeverity">
+                    <mat-button-toggle value=Low>Low</mat-button-toggle>
+                    <mat-button-toggle value=Medium>Medium</mat-button-toggle>
+                    <mat-button-toggle value=High>High</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            
+        </div>
+    </div>
+    <div style="float: right;">
+        <div>
+            <div class="attribute">
+                <h2>Likelihood of attack</h2>
+                <mat-button-toggle-group [(ngModel)]="attack.likelihoodOfAttack">
+                    <mat-button-toggle value=Low>Low</mat-button-toggle>
+                    <mat-button-toggle value=Medium>Medium</mat-button-toggle>
+                    <mat-button-toggle value=High>High</mat-button-toggle>
+                  </mat-button-toggle-group>
+            </div>
+            <div class="attribute">
+                <h2>Prerequisites</h2>
+                <input matInputPre placeholder="Ex. web" [(ngModel)]="attack.prerequisites">
+            </div>
+        </div>
+    </div>
+    <button mat-raised-button (click)="saveAttack()" [disabled]="!validate()" class="submit-button">Submit</button>
+</div>

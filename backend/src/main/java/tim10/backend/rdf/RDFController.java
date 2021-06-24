@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,6 +24,11 @@ public class RDFController {
 	@Autowired
 	private CBRApplication cbrService;
 	
+	@GetMapping(value = "")
+	public ResponseEntity<?> getData() {
+		return new ResponseEntity<>(rdfService.getAll(), HttpStatus.OK);
+	}
+	
 	
 	@PostMapping(value = "")
 	public ResponseEntity<?> insertData(@RequestBody CBRDTO dto) {
@@ -30,7 +36,7 @@ public class RDFController {
 			cbrService.addNew(dto);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		}
-		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Attack with this name already exists.", HttpStatus.BAD_REQUEST);
 	}
 	
 	@DeleteMapping(value = "/{attackName}")
@@ -42,13 +48,13 @@ public class RDFController {
 		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 	
-	@PutMapping(value = "/{oldName}")
+	@PostMapping(value = "/{oldName}")
 	public ResponseEntity<?> updateData(@RequestBody CBRDTO dto, @PathVariable String oldName) {
 		if (rdfService.update(dto, oldName)) {
 			cbrService.remove(oldName);
 			cbrService.addNew(dto);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		}
-		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Invalid attack name.", HttpStatus.BAD_REQUEST);
 	}
 }

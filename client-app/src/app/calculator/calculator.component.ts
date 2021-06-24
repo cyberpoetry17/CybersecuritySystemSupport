@@ -16,7 +16,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   vulnerabilityMetrics = new VulnerabilityMetrics();
-  score: number;
+  score: number | undefined;
 
   submit(): void {
     this.calculatorService.calculateVulnerabilityScore(this.vulnerabilityMetrics).subscribe(data => {

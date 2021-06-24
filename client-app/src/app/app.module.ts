@@ -9,19 +9,21 @@ import { RegisterAttackComponent } from './register-attack/register-attack.compo
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { CbrComponent } from './cbr/cbr.component';
 import { RealRegisterAttackComponent } from './real-register-attack/real-register-attack.component';
-
-
-
+import { NavigationComponent } from './navigation/navigation.component';
+import { AttackReviewComponent } from './attack-review/attack-review.component';
+import { EditAttackDialogComponent } from './edit-attack-dialog/edit-attack-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -31,6 +33,9 @@ import { RealRegisterAttackComponent } from './real-register-attack/real-registe
     RegisterAttackComponent,
     CbrComponent,
     RealRegisterAttackComponent,
+    NavigationComponent,
+    AttackReviewComponent,
+    EditAttackDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,9 @@ import { RealRegisterAttackComponent } from './real-register-attack/real-registe
     MatInputModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

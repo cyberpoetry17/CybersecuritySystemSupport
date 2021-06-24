@@ -1,0 +1,32 @@
+.mat-button-toggle {
+    background-color: #05386b;
+    color: white;
+}
+.mat-button-toggle-checked {
+    background-color: #5cdb95;
+}
+
+mat-divider {
+    width: 100%;
+    background-color: lightgray;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+.submit-button {
+    margin: 15px;
+    width: 150px;
+    height: 45px;
+}
+
+.dialog {
+    width: 500px;
+    height: auto;
+    text-align: center;
+}
+
+.attribute {
+    height: 100px;
+    width: 250px;
+}

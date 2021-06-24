@@ -1,0 +1,39 @@
+.review {
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    margin: 1em auto; 
+    padding:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.08);
+}
+
+.attack {
+    align-items: center;
+    text-align: left;
+    width: 90%;
+    margin: 5px;
+    padding:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.08);
+    display: inline-block;
+}
+
+.label {
+    font-weight: 500;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.button {
+    background-color: #05386B;
+    color: white;
+}
+
+.element {
+    margin: 10px;
+}

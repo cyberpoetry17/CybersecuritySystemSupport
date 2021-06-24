@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { cbrModel } from '../model/cbrModel.model';
 import { CbrService } from '../service/cbrSim.service';
 
@@ -9,14 +10,19 @@ import { CbrService } from '../service/cbrSim.service';
 })
 export class RealRegisterAttackComponent implements OnInit {
 
-  constructor(private cbrService:CbrService) { }
+  constructor(private cbrService: CbrService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
   cbrModel = new cbrModel();
 
   submit(): void {
-    this.cbrService.registerAttack(this.cbrModel).subscribe(()=>alert("Attack has been registered."))
+    this.cbrService.registerAttack(this.cbrModel).subscribe(() => {
+      this.snackBar.open('Attack registered', 'Ok', { duration: 5000 })
+    },
+      err => {
+        this.snackBar.open(err.error, 'Ok', { duration: 5000 })
+      })
   }
 
   validate(): boolean {
